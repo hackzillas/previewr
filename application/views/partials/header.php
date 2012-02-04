@@ -30,10 +30,16 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" href="./index.html">Preview</a>
+					<a class="brand" href="./">Preview</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							
+							<li class="">
+								<a href="#">Scaffolding</a>
+							</li>
+							<li class="divider-vertical"></li>
+							<li class="">
+								<a href="">Customize</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -41,10 +47,3 @@
 		</div>
 
 		<div class="container">
-
-			<!-- Masthead
-			================================================== -->
-			<header class="jumbotron subhead" id="overview">
-				<h1>Bootstrap examples</h1>
-				<p class="lead">We've included a few basic examples as starting points for your work with Bootstrap. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
-			</header>
