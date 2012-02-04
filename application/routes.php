@@ -71,8 +71,8 @@ Filter::register('before', function()
 	View::name('layouts.default', 'default');
 
 	Asset::container('header')
-		->add('bootstrap', 'css/bootstrap.min.css')
-		->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css');
+		->add('bootstrap', 'css/bootstrap.css')
+		->add('bootstrap-responsive', 'css/bootstrap-responsive.css');
 
 	Asset::container('footer')
 		->add('widgets', 'http://platform.twitter.com/widgets.js')
