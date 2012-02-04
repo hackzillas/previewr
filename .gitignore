@@ -1,1 +1,2 @@
-favicon.*
+# local application config
+application/config/local/
