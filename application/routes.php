@@ -33,9 +33,9 @@
 |
 */
 
-Router::register(array('GET /', 'GET /home'), function()
+Router::register(array('GET /'), function()
 {
-	return View::make('home.index');
+	return View::of('default')->nest('content', 'auth.index');
 });
 
 /*
@@ -68,7 +68,16 @@ Router::register(array('GET /', 'GET /home'), function()
 
 Filter::register('before', function()
 {
-	// Do stuff before every request to your application...
+	View::name('layouts.default', 'default');
+
+	Asset::container('header')
+		->add('bootstrap', 'css/bootstrap.min.css')
+		->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css');
+
+	Asset::container('footer')
+		->add('widgets', 'http://platform.twitter.com/widgets.js')
+		->add('jquery', 'js/jquery.js')
+		->add('scripts', 'js/script.js');
 });
 
 Filter::register('after', function()
