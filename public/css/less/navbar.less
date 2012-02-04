@@ -12,8 +12,7 @@
 
 // Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
-  padding-left:  20px;
-  padding-right: 20px;
+  padding: 7px 20px;
   #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
   .border-radius(4px);
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
@@ -24,7 +23,7 @@
 .btn-navbar {
   display: none;
   float: right;
-  padding: 12px 10px;
+  padding: 7px 10px;
   margin-left: 5px;
   margin-right: 5px;
   .buttonBackground(@navbarBackgroundHighlight, @navbarBackground);
@@ -172,7 +171,7 @@
   position: relative;
   left: 0;
   display: block;
-  float: left;
+  float: right;
   margin: 0 10px 0 0;
 }
 .navbar .nav.pull-right {
