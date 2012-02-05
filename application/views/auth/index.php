@@ -1,12 +1,13 @@
 <div class="row form-login">
 	<div class="span4 offset4">
 		<h1 class="logo">Preview</h1>
-		<form id="home_signup" name="home_signup" action="#" method="post">
-			<p><input type="text" name="email" id="email" class="inline" placeholder="Email" /></p>
-			<p><input type="text" name="password" id="password" placeholder="Password" /></p>
-			<p><input type="submit" name="submit" value="submit" class="btn btn-large btn-primary" /></p>
-		</form>
-		<p><a href="#">Forget your password?</a></p>
+
+		<?php echo Form::open('auth/login', 'POST'); ?>
+			<p><?php echo Form::text('email', '', array('placeholder' => 'Email')); ?></p>
+			<p><?php echo Form::password('password', array('placeholder' => 'Password')); ?></p>
+			<p><?php echo Form::submit('submit', array('class' => 'btn btn-large btn-primary')); ?></p>
+		<?php echo Form::close(); ?>
+		<p><?php echo HTML::link('#', 'Forget your password?'); ?></p>
 	</div>
 </div>
 	
