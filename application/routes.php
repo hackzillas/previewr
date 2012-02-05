@@ -33,10 +33,10 @@
 |
 */
 
-Router::register(array('GET /'), function()
+Router::register(array('GET /'), array('before' => 'assets', function()
 {
 	return View::of('default')->nest('content', 'auth.index');
-});
+}));
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,7 @@ Router::register(array('GET /'), function()
 |
 */
 
-Filter::register('before', function()
+Filter::register('assets', function()
 {
 	View::name('layouts.default', 'default');
 

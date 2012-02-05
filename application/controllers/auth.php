@@ -36,7 +36,7 @@ class Auth_Controller extends Base_Controller {
 
 	public function action_index()
 	{
-		return View::make('auth.index');
+		return View::of('default')->nest('content', 'auth.index');
 	}
 
 }
