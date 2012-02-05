@@ -3,6 +3,28 @@
 /* =========================================================== */		
 
 #user-info {
-	border: 1px solid @grayLight;
+	border: 1px solid #D1D1D1;
 	.border-radius(4px);
 }
+
+	#user-info h2.section-header {
+		border-bottom: 1px solid #BBBBBB;
+		font-size: 18px;
+		padding: 5px 14px;
+		text-shadow: 0 1px 1px #FFF;
+
+		.box-shadow(inset 0 1px 1px rgba(255,255,255,0.9));
+		#gradient .vertical(@grayLighter, #C0C0C0);
+	}
+
+	#user-info img.profile-photo {
+		border: 1px solid #BBBBBB;
+		padding: 5px;
+
+		.border-radius(4px);
+		.box-shadow(0 2px 4px rgba(0,0,0,0.05));
+	}
+
+	#user-info .body {
+		padding: 20px;		
+	}
