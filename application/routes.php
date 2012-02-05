@@ -65,8 +65,6 @@ Router::register(array('GET /'), 'auth@index');
 
 Filter::register('assets', function()
 {
-	View::name('layouts.default', 'default');
-
 	Asset::container('header')
 		->add('bootstrap', 'css/bootstrap.css')
 		->add('bootstrap-responsive', 'css/bootstrap-responsive.css');

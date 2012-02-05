@@ -6,6 +6,7 @@ class Auth_Controller extends Base_Controller {
 
 	public function get_index()
 	{
+		$this->layout->header = View::make('auth.partials.nav');
 		$this->layout->content = View::make('auth.index');
 	}
 

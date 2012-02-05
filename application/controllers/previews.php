@@ -3,6 +3,7 @@
 class Previews_Controller extends Base_Controller {
 
 	public $restful = true;
+	public $layout = 'layouts.preview';
 
 	public function __construct()
 	{

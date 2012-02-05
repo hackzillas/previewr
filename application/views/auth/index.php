@@ -10,4 +10,3 @@
 		<p class="login-form-footer"><i class="icon-question-sign"></i>&nbsp;<?php echo HTML::link('#', 'Forget your password?'); ?><span class="pull-right">&copy; <?php echo date('Y'); ?>	Hackzillas, bitches.</span></p>
 	</div>
 </div>
-	
