@@ -33,10 +33,7 @@
 |
 */
 
-Router::register(array('GET /'), array('before' => 'assets', function()
-{
-	return View::of('default')->nest('content', 'auth.index');
-}));
+Router::register(array('GET /'), 'auth@index');
 
 /*
 |--------------------------------------------------------------------------

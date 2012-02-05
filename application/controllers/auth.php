@@ -39,4 +39,9 @@ class Auth_Controller extends Base_Controller {
 		return View::of('default')->nest('content', 'auth.index');
 	}
 
+	public function action_login()
+	{
+		
+	}
+
 }
