@@ -1,6 +1,6 @@
 <?php
 
-class Create_Users_Table {
+class Create_Comments_Table {
 
 	/**
 	 * Make changes to the database.
@@ -9,14 +9,16 @@ class Create_Users_Table {
 	 */
 	public function up()
 	{
-		Schema::table('users', function($table)
+		Schema::table('comments', function($table)
 		{
 			$table->create();
 
 			$table->increments('id');
-			$table->string('name');
-			$table->string('email');
-			$table->string('password');
+			$table->integer('preview_id');
+			$table->integer('user_id');
+			$table->string('temp_user_name');
+			$table->integer('parent_id');
+			$table->text('body');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +30,7 @@ class Create_Users_Table {
 	 */
 	public function down()
 	{
-		Schema::table('users', function($table)
+		Schema::table('comments', function($table)
 		{
 			$table->drop();
 		});

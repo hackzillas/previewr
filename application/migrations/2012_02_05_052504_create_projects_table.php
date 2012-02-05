@@ -1,6 +1,6 @@
 <?php
 
-class Create_Users_Table {
+class Create_Projects_Table {
 
 	/**
 	 * Make changes to the database.
@@ -9,14 +9,13 @@ class Create_Users_Table {
 	 */
 	public function up()
 	{
-		Schema::table('users', function($table)
+		Schema::table('projects', function($table)
 		{
 			$table->create();
 
 			$table->increments('id');
 			$table->string('name');
-			$table->string('email');
-			$table->string('password');
+			$table->string('description');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +27,7 @@ class Create_Users_Table {
 	 */
 	public function down()
 	{
-		Schema::table('users', function($table)
+		Schema::table('projects', function($table)
 		{
 			$table->drop();
 		});
