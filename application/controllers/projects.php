@@ -6,7 +6,7 @@ class Projects_Controller extends Base_Controller {
 
 	public function get_index()
 	{
-		die('This is the projects controller.');
+		$this->layout->content = View::make('projects.index');
 	}
 
 }

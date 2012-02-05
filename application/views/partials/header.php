@@ -39,7 +39,7 @@
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li class="nav-item">
-								<a href="#"><i class="icon-info-sign icon-white"></i>&nbsp;Info</a>
+								<a href="#"><i class="app-icon-info icon-white"></i></a>
 							</li>
 						</ul>
 					</div>
