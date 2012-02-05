@@ -3,17 +3,19 @@
 	<aside id="sidebar" class="span3">
 		<div id="user-info">
 			<h2 class="section-header">Account</h2>
-			<p><img src="http://placehold.it/100x100" alt="" /></p>
-			<h3>Ben Kenobi</h3>
-			<p class="title">Jedi Extraordinaire</p>
-			<div id="user-stats">
-			<div class="btn-group">
-				<a href="#" class="btn">
-					38 Projects
-				</a>
-				<a href="#" class="btn">
-					320 Previews
-				</a>
+			<div class="body">
+				<p><img src="http://placehold.it/100x100" class="profile-photo" alt="" /></p>
+				<h3>Ben Kenobi</h3>
+				<p class="title">Jedi Extraordinaire</p>
+				<div id="user-stats">
+				<div class="btn-group">
+					<a href="#" class="btn">
+						38 Projects
+					</a>
+					<a href="#" class="btn">
+						320 Previews
+					</a>
+				</div>
 			</div>
 		</div>
 		</div>
@@ -33,6 +35,8 @@
 			<ul class="dropdown-menu">
 				<li class=""><a href="#">Projects</a></li>
 				<li class=""><a href="#">Previews</a></li>
+				<li class="divider"></li>
+				<li class=""><a href="#">Log Out</a></li>
 		 	 </ul>
 		</div>
 		<div class="row">
