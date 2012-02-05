@@ -2,6 +2,8 @@
 
 class Base_Controller extends Controller {
 
+	public $layout = 'layouts.default';
+
 	public function __construct()
 	{
 		$this->filter('before', 'assets');
