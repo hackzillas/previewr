@@ -2,12 +2,14 @@
 
 class Auth_Controller extends Base_Controller {
 
-	public function action_index()
+	public $restful = true;
+
+	public function get_index()
 	{
 		$this->layout->content = View::make('auth.index');
 	}
 
-	public function action_login()
+	public function post_login()
 	{
 
 	}
