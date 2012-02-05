@@ -42,9 +42,9 @@ return array(
 	|
 	*/
 
-	'attempt' => function($username, $password)
+	'attempt' => function($email, $password)
 	{
-		$user = DB::table('users')->where_username($username)->first();
+		$user = DB::table('users')->where_email($email)->first();
 
 		if ( ! is_null($user) and Hash::check($password, $user->password))
 		{
