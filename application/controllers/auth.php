@@ -29,4 +29,11 @@ class Auth_Controller extends Base_Controller {
 		return Redirect::to('/')->with_input()->with_errors($validator);
 	}
 
+	public function get_logout()
+	{
+		Auth::logout();
+
+		return Redirect::to('/');
+	}
+
 }
