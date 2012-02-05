@@ -7,6 +7,6 @@
 			<p><?php echo Form::password('password', array('placeholder' => 'Password')); ?></p>
 			<p><?php echo Form::submit('Log In', array('class' => 'btn btn-large btn-primary')); ?></p>
 		<?php echo Form::close(); ?>
-		<p class="login-form-footer"><i class="icon-question-sign"></i>&nbsp;<?php echo HTML::link('#', 'Forget your password?'); ?><span class="pull-right">&copy; <?php echo date('Y'); ?>	Hackzillas, bitches.</span></p>
+		<p class="login-form-footer"><i class="icon-question-sign"></i>&nbsp;<?php echo HTML::link('#', 'Forget your password?'); ?><span class="pull-right">&copy; <?php echo date('Y'); ?> Hackzillas, bitches.</span></p>
 	</div>
 </div>

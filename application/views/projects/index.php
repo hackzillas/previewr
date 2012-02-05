@@ -1,8 +1,8 @@
 <div id="content" class="row">
 
 	<aside id="sidebar" class="span3">
-		<div id="user-info">
-			<h2 class="section-header">Account</h2>
+		<div class="widget widget-user-info">
+			<h2 class="widget-title">Account</h2>
 			<div class="body">
 				<p><img src="http://placehold.it/100x100" class="profile-photo" alt="" /></p>
 				<h3>Ben Kenobi</h3>

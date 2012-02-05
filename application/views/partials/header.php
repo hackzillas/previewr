@@ -16,10 +16,9 @@
 
 		<?php echo Asset::container('header')->styles(); ?>
 
-		<!--
 		<script type="text/javascript" src="http://use.typekit.com/muy1jrv.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		-->
+
 	</head>
 
 	<body data-spy="scroll" data-target=".subnav" data-offset="50">
