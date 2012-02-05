@@ -11,9 +11,9 @@ class Previews_Controller extends Base_Controller {
 		$this->filter('before', 'auth');
 	}
 
-	public function get_index()
+	public function get_view($id)
 	{
-		die('This is the previews controller.');
+		$this->layout->content = View::make('previews.view');
 	}
 
 }
