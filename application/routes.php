@@ -75,6 +75,8 @@ Filter::register('assets', function()
 		->add('widgets', 'http://platform.twitter.com/widgets.js')
 		->add('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
 		->add('collapse', 'js/bootstrap-collapse.js')
+		->add('tooltip', 'js/bootstrap-tooltip.js')
+		->add('dropdowns', 'js/bootstrap-dropdown.js')
 		->add('scripts', 'js/script.js');
 });
 

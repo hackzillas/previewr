@@ -1,7 +1,7 @@
 		<!-- Footer
 			================================================== -->
-			<footer class="footer">
-				
+			<footer id="footer">
+				<p class="pull-right">&copy; <?php echo date('Y'); ?>	Hackzillas, bitches.</p>
 			</footer>
 
 		</div><!-- /container -->

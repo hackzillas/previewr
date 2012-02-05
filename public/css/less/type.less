@@ -29,7 +29,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: bold;
-  color: @grayDark;
+  color: @grayDarker;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
@@ -222,10 +222,14 @@ cite {
 
 h1.logo {
   color: #000;
-  font-family: "bello-pro";
+  font-family: "bello-pro", sans-serif;
   font-size: 55px; 
   font-weight: bold;
   margin: 0 0 40px; 
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#main.grid h1 {
+  margin-bottom: 20px;  
 }
