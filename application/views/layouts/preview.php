@@ -9,15 +9,17 @@
 
 			<aside id="sidebar" class="span3">
 				<div class="well">
+					<h3>Info</h3>
 					<p>Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac.</p>
-				</div>
-				<div class="widget widget-share">
-					<h2 class="widget-title">Share</h2>
-					<div class="body">
-						<p><i class="icon-share"></i> Short URL</p>
-						<input type="text" value="This is a test" name="shorturl" id="shorturl" />
+					<hr />
+					<h4>Short URL</h4>
+					<p><small>Copy this URL to share it</small></p>
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-share"></i></span>
+						<input id="shorturl" class="span2" type="text" value="http://prvw.com/22" name="shorturl" />
 					</div>
 				</div>
+				
 				<div class="widget widget-versions">
 					<h2 class="widget-title">Versions</h2>
 					<div class="body">

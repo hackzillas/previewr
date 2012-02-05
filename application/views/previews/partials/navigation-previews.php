@@ -9,9 +9,12 @@
 			<a class="brand" href="./">Preview</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class="nav-item"><a href="#">Edit Preview</a></li>
-					<li class="divider-vertical"></li>
-					<li class="nav-item"><a href="#">Delete</a></li>
+					<li class="nav-item">
+						<a href="#"><i class="icon-pencil icon-white"></i>&nbsp;&nbsp;Edit</a>
+					</li>
+					<li class="nav-item">
+						<a href="#"><i class="icon-remove icon-white"></i>&nbsp;&nbsp;Delete</a>
+					</li>
 				</ul>
 			</div>
 		</div>
