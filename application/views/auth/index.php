@@ -7,7 +7,7 @@
 			<p><?php echo Form::password('password', array('placeholder' => 'Password')); ?></p>
 			<p><?php echo Form::submit('Log In', array('class' => 'btn btn-large btn-primary')); ?></p>
 		<?php echo Form::close(); ?>
-		<p><?php echo HTML::link('#', 'Forget your password?'); ?></p>
+		<p><i class="icon-question-sign"></i>&nbsp;<?php echo HTML::link('#', 'Forget your password?'); ?></p>
 	</div>
 </div>
 	
