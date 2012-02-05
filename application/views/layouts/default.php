@@ -1,5 +1,14 @@
 <?php echo View::make('partials.header'); ?>
-<?php echo View::make('partials.navigation'); ?>
+
+	<?php if (isset($nav))
+	{
+		echo $nav;
+	}
+	else
+	{
+		echo View::make('partials.navigation');
+	}
+	?>
 
 	<div class="container">
 

@@ -22,10 +22,10 @@
 	</aside>
 
 	<section id="main" class="span9 grid">
-		<h1 class="inline-block">Projects</h1>
+		<h1 class="inline-block">Archived Projects</h1>
 		<div class="btn-group right">
 			<a class="btn" rel="tooltip" href="<?php echo URL::to('projects/new'); ?>" data-original-title="New Project"><i class="icon-plus"></i><div class="hidden">Create a New Project</div></a>
-			<a class="btn" rel="tooltip" href="<?php echo URL::to('projects/archived'); ?>" data-original-title="Archived Projects"><i class="icon-folder-close"></i><div class="hidden">View Archived Projects</div></a>
+			<a class="btn" rel="tooltip" href="<?php echo URL::to('projects'); ?>" data-original-title="View All Projects"><i class="icon-list-alt"></i><div class="hidden">Create a New Project</div></a>
 		</div>
 		<div class="btn-group right account">
 			<a class="btn" href="#">Account</a>

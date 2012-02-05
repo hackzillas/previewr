@@ -1,5 +1,8 @@
 <?php
 
+require('routes/projects.php');
+require('routes/previews.php');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -33,7 +36,48 @@
 |
 */
 
-Router::register(array('GET /'), 'auth@index');
+// Router::register('GET /projects', function() {return 'dead';});
+
+/**
+ * The homepage
+ */
+Router::register('GET /', function()
+{
+	return View::make('layouts.default')->nest('content', 'auth.index');
+});
+
+/**
+ * The main login route
+ */
+Router::register('POST /auth/login', function()
+{
+	$rules = array(
+		'email' => array('required', 'email', 'max:100'),
+		'password' => array('required', 'min:6')
+	);
+	$validator = Validator::make(Input::all(), $rules);
+
+	if ($validator->valid())
+	{
+		// Try to log the user in
+		if (Auth::attempt(Input::get('email'), Input::get('password')))
+		{
+			return Redirect::to('projects');
+		}
+	}
+
+	return Redirect::to('/')->with_input()->with_errors($validator);
+});
+
+/**
+ * Log a user out
+ */
+Router::register('GET /auth/logout', function()
+{
+	Auth::logout();
+
+	return Redirect::to('/');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -63,15 +107,15 @@ Router::register(array('GET /'), 'auth@index');
 |
 */
 
-Filter::register('assets', function()
+Filter::register('before', function()
 {
 	Asset::container('header')
 		->add('bootstrap', 'css/bootstrap.css')
 		->add('bootstrap-responsive', 'css/bootstrap-responsive.css');
 
 	Asset::container('footer')
-		->add('widgets', 'http://platform.twitter.com/widgets.js')
 		->add('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+		->add('widgets', 'http://platform.twitter.com/widgets.js')
 		->add('collapse', 'js/bootstrap-collapse.js')
 		->add('tooltip', 'js/bootstrap-tooltip.js')
 		->add('dropdowns', 'js/bootstrap-dropdown.js')
