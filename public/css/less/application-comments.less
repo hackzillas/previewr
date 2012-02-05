@@ -1,0 +1,50 @@
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+/* =========================================================== */
+/* ! Comments
+/* =========================================================== */		
+
+ul.comments {
+	margin: 0;	
+
+
+	.comment {
+		border-bottom: 1px solid @grayLighter;
+		list-style: none;
+		padding: 20px 20px 5px;
+		position: relative;
+
+		&.new {
+			background: #FFFAE2;
+		}
+
+		.content { margin-bottom: 0px; }
+
+		.clearfix();
+
+		.span1 {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.controls {
+			position: absolute;
+			right: 20px;
+			top: 15px;
+		}
+
+		.comment-author .label {
+			margin-right: 10px;
+		}
+
+	}
+
+	&.body {
+		padding: 0;
+	}
+}
