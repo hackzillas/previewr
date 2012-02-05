@@ -30,15 +30,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" href="./">Preview</a>
+					<a class="brand" href="./">Preview App</a>
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li class="">
-								<a href="#">Scaffolding</a>
-							</li>
-							<li class="divider-vertical"></li>
-							<li class="">
-								<a href="">Customize</a>
+								<a href="#"><i class="icon-info-sign icon-white"></i>&nbsp;Info</a>
 							</li>
 						</ul>
 					</div>

@@ -6,6 +6,7 @@
 // -------------
 
 .navbar {
+  background: #000;
   overflow: visible;
   margin-bottom: @baseLineHeight;
 }
@@ -15,8 +16,10 @@
   padding: 7px 20px;
   #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
   .border-radius(4px);
-  @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.2);
   .box-shadow(@shadow);
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
 }
 
 // Navbar button for toggling navbar items in responsive layouts
@@ -160,7 +163,7 @@
 .navbar-fixed-top .navbar-inner {
   padding-left:  0;
   padding-right: 0;
-  .border-radius(0);
+  .border-radius(6px 6px 0 0);
 }
 
 
@@ -288,4 +291,12 @@
     left: auto;
     right: 13px;
   }
+}
+
+/* =========================================================== */
+/* ! Application
+/* =========================================================== */   
+
+.navbar .container {
+  width: 96%;
 }
