@@ -33,10 +33,10 @@
 			<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li class=""><a href="#">Projects</a></li>
-				<li class=""><a href="#">Previews</a></li>
+				<li class=""><a href="<?php echo URL::to('projects'); ?>">Projects</a></li>
+				<li class=""><a href="<?php echo URL::to('previews'); ?>">Previews</a></li>
 				<li class="divider"></li>
-				<li class=""><a href="#">Log Out</a></li>
+				<li class=""><a href="<?php echo URL::to('auth/logout'); ?>">Log Out</a></li>
 		 	 </ul>
 		</div>
 		<div class="row">

@@ -22,7 +22,7 @@
 				<?php echo Form::label('visibility', 'Private or Public?', array('class' => 'control-label')); ?>
 				<div class="controls">
 					<label for="visibility" class="checkbox">
-						<?php echo Form::checkbox('visibility', 'private', false, array('id' => 'visibility')); ?>
+						<?php echo Form::checkbox('visibility', '1', false, array('id' => 'visibility')); ?>
 						Check this box if you want your project to be private.
 					</label>
 				</div>

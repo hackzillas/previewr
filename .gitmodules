@@ -1,0 +1,3 @@
+[submodule "bundles/eloquent"]
+	path = bundles/eloquent
+	url = git@github.com:taylorotwell/eloquent.git

@@ -31,7 +31,14 @@ Router::register('POST /projects/create', function()
 
 	if ($validator->valid())
 	{
-		// save it to the database
+		$project = new Project;
+
+		$project->user_id = Auth::user_key;
+		$project->name = Input::get('name');
+		$project->description = Input::get('description');
+		$project->private = Input::get('visibility');
+
+		$project->save();
 
 		// redirect with success message to projects page
 		return Redirect::to('projects/archived')
