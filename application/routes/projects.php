@@ -22,8 +22,12 @@ View::composer('projects.index', function($view)
 Router::register('GET /projects/(:num)', function()
 {
 	return View::make('layouts.default')
-		->with('project', 'all of the project info')
 		->nest('content', 'projects.view');
+});
+
+View::composer('projects.view', function($view)
+{
+	$view['previews'] = Preview::where('project_id', '=', URI::segment(2))->get();
 });
 
 /**
