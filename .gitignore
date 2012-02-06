@@ -1,2 +1,5 @@
 # local application config
 application/config/local/
+
+# user uploads
+public/uploads/
