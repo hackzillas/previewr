@@ -10,7 +10,7 @@ class Project extends Eloquent\Model {
 		return $this->belongs_to('User');
 	}
 
-	public function preview()
+	public function previews()
 	{
 		return $this->has_many('Preview');
 	}
