@@ -33,15 +33,15 @@ Router::register('POST /projects/create', function()
 	{
 		$project = new Project;
 
-		$project->user_id = Auth::user_key;
+		$project->user_id = Session::get(Auth::user_key);
 		$project->name = Input::get('name');
 		$project->description = Input::get('description');
-		$project->private = Input::get('visibility');
+		$project->private = (Input::get('visibility')) ? 1 : 0;
 
 		$project->save();
 
 		// redirect with success message to projects page
-		return Redirect::to('projects/archived')
+		return Redirect::to('projects')
 			->with('message_success', 'Project created successfully!');
 	}
 
