@@ -2,8 +2,8 @@
 
 class Project extends Eloquent\Model {
 
-	public static $timestamps = true;
 	public static $table = 'projects';
+	public static $timestamps = true;
 
 	public function user()
 	{
