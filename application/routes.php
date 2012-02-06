@@ -2,6 +2,7 @@
 
 require('routes/projects.php');
 require('routes/previews.php');
+require('routes/versions.php');
 
 /*
 |--------------------------------------------------------------------------
