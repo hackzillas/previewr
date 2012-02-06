@@ -1,3 +1,3 @@
 <div id="content" class="preview">
-	<img src="http://preview.bishop-creative.com/sc/images/index-1-23-12.jpg" alt="Title" />
+	<img src="<?php echo URL::base(); ?>/public/uploads/versions/<?php echo $version->image_src; ?>" alt="Title" />
 </div>
