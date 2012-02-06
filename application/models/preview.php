@@ -5,7 +5,7 @@ class Preview extends Eloquent\Model {
 	public static $table = 'previews';
 	public static $timestamps = true;
 
-	public function projects()
+	public function project()
 	{
 		return $this->belongs_to('Project');
 	}
