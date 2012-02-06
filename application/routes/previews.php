@@ -8,8 +8,14 @@ Router::register('GET /previews/(:num)', function($preview_id)
 	// check to see if the project is protected
 
 	return View::make('layouts.default')
-		->with('preview', 'the preview content')
 		->nest('content', 'previews.view');
+});
+
+View::composer('previews.view', function($view)
+{
+	$view['version'] = Version::where('preview_id', '=', URI::segment(2))
+		->order_by('created_at', 'desc')
+		->first();
 });
 
 /**
@@ -18,8 +24,12 @@ Router::register('GET /previews/(:num)', function($preview_id)
 Router::register('GET /previews/new/(:num)', function($project_id)
 {
 	return View::make('layouts.default')
-		->with('project', 'the project content')
 		->nest('content', 'previews.new');
+});
+
+View::composer('previews.new', function($view)
+{
+	$view['project'] = Project::find(URI::segment(3));
 });
 
 /**
@@ -35,17 +45,20 @@ Router::register('POST /previews/create/(:num)', function($project_id)
 
 	if ($validator->valid())
 	{
+		// create the preview
 		$preview = new Preview;
 
 		$preview->project_id = $project_id;
 		$preview->name = Input::get('name');
 		$preview->description = Input::get('description');
 
-		$preview->save();
+		$preview_id = $preview->save();
 
-		return Redirect::to('previews/'.$project_id)
-			->with('message_success', 'Preview created successfully!');
+		return Redirect::to('versions/create/'.$preview_id)
+			->with('message_success', 'Preview created successfully! Now setup the first version!');
 	}
 
-	return Redirect::to('previews/new');
+	return Redirect::to('previews/new')
+		->with_input()
+		->with_errors($validator);
 });
