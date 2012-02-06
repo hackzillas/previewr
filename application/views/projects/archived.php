@@ -39,39 +39,18 @@
 				<li class=""><a href="<?php echo URL::to('auth/logout'); ?>">Log Out</a></li>
 		 	 </ul>
 		</div>
+		
 		<div class="row">
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
+		<?php foreach($projects as $project): ?>
+		<?php $project = $project->attributes; ?>
+			<div class="item span3">
+				<a href="<?php echo URL::to('projects/'.$project['id']); ?>">
+					<img src="http://placehold.it/400x300" alt="<?php echo $project['name']; ?>" />
+				</a>
 			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
+		<?php endforeach; ?>
 		</div>
-		<div class="row">
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-			<div class="span3 item">
-				<img src="http://placehold.it/400x300" alt="" />
-			</div>
-		</div>
+
 		<div class="pagination">
 		  <ul>
 			<li><a href="#">Prev</a></li>

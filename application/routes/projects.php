@@ -9,6 +9,23 @@ Router::register('GET /projects', function()
 		->nest('content', 'projects.index');
 });
 
+View::composer('projects.index', function($view)
+{
+	$view['projects'] = Project::where('user_id', '=', Session::get(Auth::user_key))
+		->where('active', '=', 1)
+		->get();
+});
+
+/**
+ * View a project and all of its previews
+ */
+Router::register('GET /projects/(:num)', function()
+{
+	return View::make('layouts.default')
+		->with('project', 'all of the project info')
+		->nest('content', 'projects.view');
+});
+
 /**
  * Display create a new project view
  */
@@ -37,6 +54,7 @@ Router::register('POST /projects/create', function()
 		$project->name = Input::get('name');
 		$project->description = Input::get('description');
 		$project->private = (Input::get('visibility')) ? 1 : 0;
+		$project->active = 1;
 
 		$project->save();
 
@@ -57,4 +75,11 @@ Router::register('GET /projects/archived', function()
 {
 	return View::make('layouts.default')
 		->nest('content', 'projects.archived');
+});
+
+View::composer('projects.archived', function($view)
+{
+	$view['projects'] = Project::where('user_id', '=', Session::get(Auth::user_key))
+		->where('active', '=', 0)
+		->get();
 });
