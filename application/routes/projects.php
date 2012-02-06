@@ -27,6 +27,7 @@ Router::register('GET /projects/(:num)', function()
 
 View::composer('projects.view', function($view)
 {
+	$view['project_id'] = URI::segment(2);
 	$view['previews'] = Preview::where('project_id', '=', URI::segment(2))->get();
 });
 

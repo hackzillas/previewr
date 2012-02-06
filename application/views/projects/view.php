@@ -24,8 +24,7 @@
 	<section id="main" class="span9 grid">
 		<h1 class="inline-block title">Previews</h1>
 		<div class="btn-group right">
-			<a class="btn" rel="tooltip" href="<?php echo URL::to('projects/new'); ?>" data-original-title="New Project"><i class="icon-plus"></i><div class="hidden">Create a New Project</div></a>
-			<a class="btn" rel="tooltip" href="<?php echo URL::to('projects/archived'); ?>" data-original-title="Archived Projects"><i class="icon-folder-close"></i><div class="hidden">View Archived Projects</div></a>
+			<a class="btn" rel="tooltip" href="<?php echo URL::to('previews/new/'.$project_id); ?>" data-original-title="New Preview"><i class="icon-plus"></i><div class="hidden">Create a New Preview</div></a>
 		</div>
 		<div class="btn-group right account">
 			<a class="btn" href="#">Account</a>
@@ -33,7 +32,6 @@
 			<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li class=""><a href="<?php echo URL::to('projects'); ?>">Projects</a></li>
 				<li class=""><a href="<?php echo URL::to('previews'); ?>">Previews</a></li>
 				<li class="divider"></li>
 				<li class=""><a href="<?php echo URL::to('auth/logout'); ?>">Log Out</a></li>
