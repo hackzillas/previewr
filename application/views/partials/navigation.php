@@ -6,7 +6,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="./">Preview</a>
+			<a class="brand" href="<?php echo URL::base(); ?>">Preview</a>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li class="nav-item">
