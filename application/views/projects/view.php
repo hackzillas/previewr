@@ -32,7 +32,7 @@
 			<span class="caret"></span>
 			</a>
 			<ul class="dropdown-menu">
-				<li class=""><a href="<?php echo URL::to('previews'); ?>">Previews</a></li>
+				<li class=""><a href="<?php echo URL::to('projects'); ?>">Projects</a></li>
 				<li class="divider"></li>
 				<li class=""><a href="<?php echo URL::to('auth/logout'); ?>">Log Out</a></li>
 		 	 </ul>
