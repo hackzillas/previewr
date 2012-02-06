@@ -1,6 +1,6 @@
 <?php
 
-class User extends Eloquent {
+class User extends Eloquent\Model {
 
 	public static $timestamps = true;
 
