@@ -2,7 +2,7 @@
 	<?php echo Form::open('previews/create/'.URI::segment(3), 'POST', array('class' => 'span8 offset2 form-horizontal')); ?>
 
 		<fieldset>
-			<legend>Create A New Preview</legend>
+			<legend>Create A New Preview for <?php echo $project->name; ?></legend>
 
 			<div class="control-group">
 				<?php echo Form::label('name', 'Name', array('class' => 'control-label')); ?>
