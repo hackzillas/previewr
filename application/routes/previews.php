@@ -54,7 +54,7 @@ Router::register('POST /previews/create/(:num)', function($project_id)
 
 		$preview_id = $preview->save();
 
-		return Redirect::to('versions/create/'.$preview_id)
+		return Redirect::to('versions/new/'.$preview_id)
 			->with('message_success', 'Preview created successfully! Now setup the first version!');
 	}
 
