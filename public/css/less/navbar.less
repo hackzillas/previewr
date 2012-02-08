@@ -196,11 +196,9 @@
 	float: left;
 	margin: 0 10px 0 0;
 }
-	.navbar .nav > li.nav-account {
-		background: none !important;
-	}
 
 .navbar .nav.pull-right {
+	background: none !important;
 	float: right; // redeclare due to specificity
 }
 .navbar .nav > li {
@@ -208,7 +206,9 @@
 	display: block;
 	float: left;
 }
-
+	.navbar .nav > li.nav-account {
+		background: none !important;
+	}
 // Links
 .navbar .nav > li > a {
 	float: none;
@@ -331,6 +331,16 @@
 		height: 33px;
 	}
 
+	.btn:hover {
+		background-position: top;
+		#gradient > .vertical(@navbarHoverTop, @navbarHoverBottom);
+	}
+
+	.btn:active {
+		background-position: top;
+		#gradient > .vertical(@navbarActiveTop, @navbarActiveBottom);
+	}
+
 	img {
 		border: 1px solid #000;
 		margin-top: 2px;
@@ -343,5 +353,10 @@
 		position: relative;
 		top: -8px;
 		text-shadow: 0 -1px 0 rgba(0,0,0,1);
+	}
+
+	span.caret {
+		margin-top: 14px;
+		opacity: 1.0 !important;
 	}
 }
