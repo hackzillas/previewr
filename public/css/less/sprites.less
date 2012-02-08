@@ -15,27 +15,35 @@
 // <i class="i icon-inbox icon-white"></i>
 
 [class^="icon-"] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  vertical-align: text-top;
-  background-image: url(images/glyphicons-halflings.png);
-  background-position: 14px 14px;
-  background-repeat: no-repeat;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	vertical-align: text-top;
+	background-image: url(images/glyphicons-halflings.png);
+	background-position: 14px 14px;
+	background-repeat: no-repeat;
 
-  .ie7-restore-right-whitespace();
+	.ie7-restore-right-whitespace();
 }
 [class^="app-icon-"] {
-  display: inline-block;
-  width: 6px;
-  height: 14px;
-  vertical-align: text-top;
-  background-repeat: no-repeat;
+	display: inline-block;
+	// Declare width in each icon below
+	height: 13px;
+	vertical-align: text-top;
+	background-repeat: no-repeat;
 
-  .ie7-restore-right-whitespace();
+	.ie7-restore-right-whitespace();
+}
+[class^="app-icon-nav-"] {
+	display: inline-block;
+	height: 13px;
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+
+	.ie7-restore-right-whitespace();
 }
 .icon-white {
-  background-image: url(images/glyphicons-halflings-white.png);
+	background-image: url(images/glyphicons-halflings-white.png);
 }
 
 .icon-glass              { background-position: 0      0; }
@@ -166,4 +174,16 @@
 
 .app-icon-info {
 	background-image: url(images/app-icon-info.png);
+}
+
+.app-icon-nav-projects {
+	background: url('images/app-icon-nav-projects.png');
+	margin: 2px 10px 0 0;
+	width: 14px;
+}
+
+.app-icon-nav-previews {
+	background: url('images/app-icon-nav-previews.png');
+	margin: 2px 10px 0 0;
+	width: 15px;
 }
