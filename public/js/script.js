@@ -8,7 +8,7 @@ $(function() {
 
 	// Dropdowns
 	$('.dropdown-toggle').dropdown()
-
+	
 	// Comment Controls (show on hover)
 	$('.comment .controls, .comment .comment-meta').animate({
 		"opacity": "0"
@@ -23,5 +23,13 @@ $(function() {
 			"opacity": "0.0"
 		});
 	});	
+
+	// Toggle Comments Popover
+	
+
+
+	$("#comments-toggle").click(function() {
+		$("#comments-popover").fadeToggle("slow", "linear");
+	});
 
 });

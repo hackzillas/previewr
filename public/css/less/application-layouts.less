@@ -4,14 +4,10 @@
 
 /* =========================================================== */
 /* ! Application Layouts
-/* =========================================================== */		
-
-* {
-	.background-clip(padding-box);
-}
+/* =========================================================== */
 
 #content {
-	margin-top: 15px;
+
 }
 
 	&.preview {
@@ -26,6 +22,21 @@
 		.box-sizing(border-box);
 		.background-clip(padding-box);
 		.box-shadow(0 0 7px rgba(0,0,0,0.07));
+
+		.row {
+			
+		
+			.container {
+				
+
+			}
+
+		}
+
+		.row .item {
+			
+			
+		}
 	}
 
 		.title-bar {
@@ -50,17 +61,56 @@
 				top: 8px;
 			}
 		}
-
-		.row .item {
-			margin-bottom: 20px;
-		}
-
 		
 
 	#sidebar {
 		margin-bottom: 40px;
+		padding: 0;
 	}
 
 #footer {
 	padding: 50px 0;
+}
+
+// View controls
+#controls {
+	background: #333;
+	border: 1px solid #000;
+	bottom: 0;
+	height: 38px;
+	margin: 0;
+	padding: 7px 3px;
+	position: fixed;
+	right: 40px;
+
+	.border-radius(8px 8px 0 0);
+	#gradient > .vertical(#373737,#222222);
+	.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+
+	.btn,
+	.separator {
+		float: left;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+
+	.separator {
+		background: url('images/separator-controls.png');
+		display: block;
+		height: 49px;
+		margin-top: -7px;
+		width: 2px;
+	}
+
+	#comments-popover {
+		background: url('images/popover-comments-bg.png') no-repeat;
+		bottom: 34px;
+		display: none;
+		height: 417px;
+		position: fixed;
+		right: 25px;
+		width: 503px;
+	}
+
+	// Comments styles in application-comments.less
 }

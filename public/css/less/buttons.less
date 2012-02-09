@@ -142,17 +142,83 @@
 		.box-shadow(@shadow);
 	}
 }
+.btn-secondary {
+
+	border: 1px solid #000;
+	#gradient > .vertical(@buttonSecondaryTop, @buttonSecondaryBottom);
+	.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+		
+
+	&:hover {
+		border: 1px solid #000;
+		#gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+	}
+
+	&:active {
+		#gradient > .vertical(#292929, #383838);
+		.box-shadow(inset 0 2px 5px rgba(0,0,0,0.5)) !important;
+	}
+}
 // Warning appears are orange
 .btn-warning {
-	.buttonBackground(lighten(@orange, 15%), @orange);
+	
+	border: 1px solid #000;
+	#gradient > .vertical(@buttonWarningTop, @buttonWarningBottom);
+	.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+		
+
+	&:hover {
+		border: 1px solid #000;
+		#gradient > .vertical(@buttonWarningHoverTop, @buttonWarningHoverBottom);
+		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+	}
+
+	&:active {
+		#gradient > .vertical(@buttonWarningActiveTop, @buttonWarningActiveBottom);
+		.box-shadow(inset 0 2px 5px rgba(0,0,0,0.5)) !important;
+	}
+
 }
 // Danger and error appear as red
 .btn-danger {
-	.buttonBackground(#ee5f5b, #bd362f);
+	
+	border: 1px solid #000;
+	#gradient > .vertical(@buttonDangerTop, @buttonDangerBottom);
+	.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+		
+
+	&:hover {
+		border: 1px solid #000;
+		#gradient > .vertical(@buttonDangerHoverTop, @buttonDangerHoverBottom);
+		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+	}
+
+	&:active {
+		#gradient > .vertical(@buttonDangerActiveTop, @buttonDangerActiveBottom);
+		.box-shadow(inset 0 2px 5px rgba(0,0,0,0.5)) !important;
+	}
+
 }
 // Success appears as green
 .btn-success {
-	.buttonBackground(#62c462, #51a351);
+	
+	border: 1px solid #000;
+	#gradient > .vertical(@buttonSuccessTop, @buttonSuccessBottom);
+	.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+		
+
+	&:hover {
+		border: 1px solid #000;
+		#gradient > .vertical(@buttonSuccessHoverTop, @buttonSuccessHoverBottom);
+		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
+	}
+
+	&:active {
+		#gradient > .vertical(@buttonSuccessActiveTop, @buttonSuccessActiveBottom);
+		.box-shadow(inset 0 2px 5px rgba(0,0,0,0.5)) !important;
+	}
+
 }
 // Info appears as a neutral blue
 .btn-info {

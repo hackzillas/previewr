@@ -6,7 +6,13 @@
 /* ! Comments
 /* =========================================================== */		
 
-ul.comments {
+ul#comments {
+	
+	height: 278px;
+	left: 29px;
+	position: relative;
+	top: 35px;
+	width: 446px;
 	margin: 0;	
 
 
@@ -46,5 +52,23 @@ ul.comments {
 
 	&.body {
 		padding: 0;
+	}
+}
+
+#comment-form {
+	height: 30px;
+	left: 39px;
+	position: absolute;
+	top: 325px;
+	width: 425px;
+
+	input[type="text"] {
+		border: 1px solid #000;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 8px 12px;
+		width: 350px;
+
+		.border-radius(20px);
 	}
 }
