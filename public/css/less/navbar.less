@@ -27,8 +27,10 @@
 	display: none;
 	float: right;
 	padding: 7px 10px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 12px;
+	margin-right: 12px;
+	position: relative;
+	top: 6px;
 	.buttonBackground(@navbarBackgroundHighlight, @navbarBackground);
 	@shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
 	.box-shadow(@shadow);
@@ -47,6 +49,16 @@
 // Override the default collapsed state
 .nav-collapse.collapse {
 	height: auto;
+
+	.nav,
+	.nav > li {
+		background: none;
+	}
+
+	.brand {
+		margin-left: 30px;
+	}
+
 }
 
 
@@ -89,6 +101,12 @@
 	}
 	.btn-group .btn {
 		margin-top: 0;
+	}
+	li a:hover {
+		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2)) !important;
+	}
+	li a:active {
+		.box-shadow(inset 0 2px 5px rgba(0,0,0,0.5)) !important;
 	}
 }
 
@@ -215,6 +233,7 @@
 	font-size: 14px;
 	font-weight: bold;
 	margin-left: 2px;
+	margin-right: -1px;
 	padding: 16px 20px 18px;
 	line-height: 19px;
 	color: @navbarLinkColor;
@@ -327,6 +346,7 @@
 	.btn {
 		border: 1px solid #000;
 		#gradient > .vertical(#838383, #434343);
+		#gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
 		.box-shadow(inset 0 1px 0 rgba(255,255,255,0.2));
 		height: 33px;
 	}
@@ -359,4 +379,8 @@
 		margin-top: 14px;
 		opacity: 1.0 !important;
 	}
+}
+
+.navbar .container {
+	
 }

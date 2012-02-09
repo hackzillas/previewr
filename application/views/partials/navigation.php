@@ -8,7 +8,7 @@
 			</a>
 			<a class="brand" href="<?php echo URL::base(); ?>"><span class="hidden">Preview</span></a>
 			<div class="nav-collapse">
-				<ul class="nav left">
+				<ul class="nav nav-main left">
 					<li class="nav-projects">
 						<a href="/preview/projects"><i class="app-icon-nav-projects"></i>Projects</a>
 					</li>
