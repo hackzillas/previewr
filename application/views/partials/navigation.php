@@ -21,7 +21,6 @@
 						<div class="btn-group">
 							<a class="btn" href="#">
 								<img src="http://localhost:8888/preview/public/css/images/avatar-thomas.jpg" class="account-avatar" />
-								<span class="account-name">Thomas Bishop</span>
 							</a>
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<span class="caret"></span>
