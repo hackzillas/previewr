@@ -24,7 +24,7 @@
 								<span class="account-name">Thomas Bishop</span>
 							</a>
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							<span class="caret"></span>
+								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class=""><a href="<?php echo URL::to('projects'); ?>">Projects</a></li>
