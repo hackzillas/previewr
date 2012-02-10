@@ -1,8 +1,8 @@
-		<!-- Footer
-			================================================== -->
+		<?php if (URI::current() != '/'): ?>
 			<footer id="footer">
-				<p class="pull-right">&copy; <?php echo date('Y'); ?>	Hackzillas, bitches.</p>
+				<p>&copy; <?php echo date('Y'); ?>	Hackzillas, bitches.</p>
 			</footer>
+		<?php endif; ?>
 
 		</div><!-- /container -->
 
