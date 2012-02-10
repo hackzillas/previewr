@@ -5,6 +5,7 @@
  */
 Router::register('GET /projects', function()
 {
+	Title::set('Projects Dashboard');
 	return View::make('layouts.default')
 		->nest('content', 'projects.index');
 });
@@ -19,16 +20,15 @@ View::composer('projects.index', function($view)
 /**
  * View a project and all of its previews
  */
-Router::register('GET /projects/(:num)', function()
+Router::register('GET /projects/(:num)', function($project_id)
 {
-	return View::make('layouts.default')
-		->nest('content', 'projects.view');
-});
+	$project = Project::find($project_id)->with('previews');
 
-View::composer('projects.view', function($view)
-{
-	$view['project_id'] = URI::segment(2);
-	$view['previews'] = Preview::where('project_id', '=', URI::segment(2))->get();
+	Title::set($project->name);
+
+	View::share('project', $project);
+
+	return View::make('layouts.default')->nest('content', 'projects.view');
 });
 
 /**
@@ -36,6 +36,7 @@ View::composer('projects.view', function($view)
  */
 Router::register('GET /projects/new', function()
 {
+	Title::set('Create A Project');
 	return View::make('layouts.default')
 		->nest('content', 'projects.new');
 });
@@ -78,6 +79,7 @@ Router::register('POST /projects/create', function()
  */
 Router::register('GET /projects/archived', function()
 {
+	Title::set('Archived Projects');
 	return View::make('layouts.default')
 		->nest('content', 'projects.archived');
 });

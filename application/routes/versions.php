@@ -5,6 +5,7 @@
  */
 Router::register('GET /versions/new/(:num)', function()
 {
+	Title::set('Create A Version');
 	return View::make('layouts.default')
 		->nest('content', 'versions.new');
 });
