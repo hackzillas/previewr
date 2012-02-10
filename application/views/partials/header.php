@@ -3,11 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Preview App</title>
+		<title><?php echo Title::get(); ?></title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 		<!--[if lt IE 9]>
@@ -20,4 +18,4 @@
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	</head>
-	<body data-spy="scroll" data-target=".subnav" data-offset="50" class="<?php echo URI::segment(1).' '.str_replace('/', '-', URI::current()); ?>">
+	<body data-spy="scroll" data-target=".subnav" data-offset="50" class="<?php echo Title::get_page_class(); ?>">
