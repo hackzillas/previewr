@@ -44,7 +44,8 @@ require('routes/versions.php');
  */
 Router::register('GET /', function()
 {
-	return View::make('layouts.default')->nest('content', 'auth.index');
+	return View::make('layouts.default')
+		->nest('content', 'auth.index');
 });
 
 /**

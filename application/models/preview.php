@@ -10,7 +10,7 @@ class Preview extends Eloquent\Model {
 		return $this->belongs_to('Project');
 	}
 
-	public function project_statuses()
+	public function project_status()
 	{
 		return $this->has_one('Project_Status');
 	}
