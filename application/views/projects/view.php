@@ -22,7 +22,7 @@
 	</aside>
 
 	<section id="main" class="span9 grid">
-		<h1 class="inline-block title">Previews</h1>
+		<h1 class="inline-block title">Previews for <?php echo $project->name; ?></h1>
 		<div class="btn-group right">
 			<a class="btn" rel="tooltip" href="<?php echo URL::to('previews/new/'.$project_id); ?>" data-original-title="New Preview"><i class="icon-plus"></i><div class="hidden">Create a New Preview</div></a>
 		</div>
@@ -39,7 +39,7 @@
 		</div>
 		
 		<div class="row">
-		<?php foreach($previews as $preview): ?>
+		<?php foreach($project->previews as $preview): ?>
 		<?php $preview = $preview->attributes; ?>
 			<div class="item span3">
 				<a href="<?php echo URL::to('previews/'.$preview['id']); ?>">
