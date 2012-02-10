@@ -10,23 +10,28 @@ ul#comments {
 	
 	height: 278px;
 	left: 29px;
+	overflow: scroll;
 	position: relative;
 	top: 35px;
 	width: 446px;
 	margin: 0;	
 
 
-	.comment {
-		border-bottom: 1px solid @grayLighter;
+	.comment  {
+		background: url('images/comment-sep.jpg') repeat-x bottom;
 		list-style: none;
-		padding: 20px 20px 5px;
+		padding: 20px 0 20px 20px;
 		position: relative;
 
-		&.new {
-			background: #FFFAE2;
-		}
+		.content { 
 
-		.content { margin-bottom: 0px; }
+			margin-bottom: 7px;
+			width: 300px;
+
+			p {
+				font-size: 12px;
+			}
+		}
 
 		.clearfix();
 
@@ -35,19 +40,55 @@ ul#comments {
 		}
 
 		&:last-child {
-			border-bottom: none;
+			background-image: none;
 		}
 
 		.controls {
 			position: absolute;
 			right: 20px;
 			top: 15px;
+
+			.btn {
+				margin: 0 0 0 -1px;
+				padding: 1px 9px 0px;
+			}
 		}
 
-		.comment-author .label {
-			margin-right: 10px;
+		.comment-author {
+			
+			font-size: 12px;
+			margin-bottom: 5px;
+
+			.label {
+				margin-right: 10px;
+			}
 		}
 
+	}
+
+	.comment.by-author {
+		padding: 20px 0 20px 20px;
+
+		.span1 { 
+			margin-left: 30px;
+		}
+
+		.span3 {
+			margin-left: 0px;
+			margin-right: 30px;
+		}
+		.controls {
+			position: absolute;
+			right: 28px;
+			top: 100px;
+
+			.btn {
+				margin: 0 0 0 -1px;
+				padding: 2px 9px 1px;
+			}
+		}
+
+		.comment-author {}
 	}
 
 	&.body {
@@ -56,18 +97,17 @@ ul#comments {
 }
 
 #comment-form {
-	height: 30px;
 	left: 39px;
 	position: absolute;
-	top: 325px;
+	top: 328px;
 	width: 425px;
 
 	input[type="text"] {
 		border: 1px solid #000;
-		font-size: 14px;
+		font-size: 13px;
 		font-weight: bold;
-		padding: 8px 12px;
-		width: 350px;
+		padding: 6px 12px;
+		width: 360px;
 
 		.border-radius(20px);
 	}
