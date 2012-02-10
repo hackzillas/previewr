@@ -20,4 +20,4 @@
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	</head>
-	<body data-spy="scroll" data-target=".subnav" data-offset="50" class="<?php echo str_replace('/', '-', URI::segment(1)); ?>">
+	<body data-spy="scroll" data-target=".subnav" data-offset="50" class="<?php echo URI::segment(1).' '.str_replace('/', '-', URI::current()); ?>">
