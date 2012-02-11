@@ -7,14 +7,18 @@
 // -----------------
 
 body {
-  margin: 0;
-  padding-top: 70px;
-  font-family: @baseFontFamily;
-  font-size: @baseFontSize;
-  line-height: @baseLineHeight;
-  color: @textColor;
-  background: @white url(images/bg.jpg);
-  background: #333 url(images/bg-checker.jpg);
+	margin: 0;
+	padding-top: 70px;
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @textColor;
+	background: @white url(images/bg.jpg);
+
+	&.view-preview {
+		background-image: url('images/bg-checker.jpg');
+	}
+
 }
 
 
@@ -22,10 +26,10 @@ body {
 // -----
 
 a {
-  color: @linkColor;
-  text-decoration: none;
+	color: @linkColor;
+	text-decoration: none;
 }
 a:hover {
-  color: @linkColorHover;
-  text-decoration: underline;
+	color: @linkColorHover;
+	text-decoration: underline;
 }
