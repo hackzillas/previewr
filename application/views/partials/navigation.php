@@ -10,17 +10,17 @@
 			<div class="nav-collapse">
 				<ul class="nav nav-main left">
 					<li class="nav-projects">
-						<a href="/preview/projects"><i class="app-icon-nav-projects"></i>Projects</a>
+						<a href="<?php echo URL::to('projects'); ?>"><i class="app-icon-nav-projects"></i>Projects</a>
 					</li>
 					<li class="nav-previews">
-						<a href="/preview/previews"><i class="app-icon-nav-previews"></i>Previews</a>
+						<a href="<?php echo URL::to('previews'); ?>"><i class="app-icon-nav-previews"></i>Previews</a>
 					</li>
 				</ul>
 				<ul class="nav pull-right">
 					<li class="nav-account">
 						<div class="btn-group">
 							<a class="btn" href="#">
-								<img src="http://localhost:8888/preview/public/css/images/avatar-thomas.jpg" class="account-avatar" />
+								<img src="<?php echo URL::to('css/images/avatar-thomas.jpg'); ?>" class="account-avatar" />
 							</a>
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 								<span class="caret"></span>

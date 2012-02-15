@@ -16,33 +16,33 @@ require('routes/versions.php');
 |
 | Let's respond to a simple GET request to http://example.com/hello:
 |
-|		Router::register('GET /hello', function()
+|		Route::register('GET /hello', function()
 |		{
 |			return 'Hello World!';
 |		});
 |
 | You can even respond to more than one URI:
 |
-|		Router::register('GET /hello, GET /world', function()
+|		Route::register('GET /hello, GET /world', function()
 |		{
 |			return 'Hello World!';
 |		});
 |
 | It's easy to allow URI wildcards using (:num) or (:any):
 |
-|		Router::register('GET /hello/(:any)', function($name)
+|		Route::register('GET /hello/(:any)', function($name)
 |		{
 |			return "Welcome, $name.";
 |		});
 |
 */
 
-// Router::register('GET /projects', function() {return 'dead';});
+// Route::register('GET /projects', function() {return 'dead';});
 
 /**
  * The homepage
  */
-Router::register('GET /', function()
+Route::get('/', function()
 {
 	return View::make('layouts.default')
 		->nest('content', 'auth.index');
@@ -51,7 +51,7 @@ Router::register('GET /', function()
 /**
  * The main login route
  */
-Router::register('POST /auth/login', function()
+Route::post('auth/login', function()
 {
 	$rules = array(
 		'email' => array('required', 'email', 'max:100'),
@@ -74,7 +74,7 @@ Router::register('POST /auth/login', function()
 /**
  * Log a user out
  */
-Router::register('GET /auth/logout', function()
+Route::get('auth/logout', function()
 {
 	Auth::logout();
 
@@ -102,14 +102,14 @@ Router::register('GET /auth/logout', function()
 |
 | Next, attach the filter to a route:
 |
-|		Router::register('GET /', array('before' => 'filter', function()
+|		Route::register('GET /', array('before' => 'filter', function()
 |		{
 |			return 'Hello World!';
 |		}));
 |
 */
 
-Filter::register('before', function()
+Route::filter('before', function()
 {
 	Asset::container('header')
 		->add('bootstrap', 'css/bootstrap.css')
@@ -124,17 +124,17 @@ Filter::register('before', function()
 		->add('scripts', 'js/script.js');
 });
 
-Filter::register('after', function()
+Route::filter('after', function()
 {
 	// Do stuff after every request to your application...
 });
 
-Filter::register('csrf', function()
+Route::filter('csrf', function()
 {
 	if (Request::forged()) return Response::error('500');
 });
 
-Filter::register('auth', function()
+Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('/');
 });

@@ -31,6 +31,40 @@ require path('sys').'autoloader'.EXT;
 spl_autoload_register(array('Laravel\\Autoloader', 'load'));
 
 /**
+ * Register the Laravel namespace so that the auto-loader loads it
+ * according to the PSR-0 naming conventions. This should provide
+ * fast resolution of all core classes.
+ */
+Autoloader::namespaces(array('Laravel' => path('sys')));
+
+/**
+ * Set the CLI options on the $_SERVER global array so we can easily
+ * retrieve them from the various parts of the CLI code. We can use
+ * the Request class to access them conveniently.
+ */
+if (defined('STDIN'))
+{
+	$console = CLI\Command::options($_SERVER['argv']);
+
+	list($arguments, $options) = $console;
+
+	$options = array_change_key_case($options, CASE_UPPER);
+
+	$_SERVER['CLI'] = $options;
+}
+
+/**
+ * The Laravel environment may be specified on the CLI using the env
+ * option, allowing the developer to easily use local configuration
+ * files from the CLI since the environment is usually controlled
+ * by server environmenet variables.
+ */
+if (isset($_SERVER['CLI']['ENV']))
+{
+	$_SERVER['LARAVEL_ENV'] = $_SERVER['CLI']['ENV'];
+}
+
+/**
  * Register all of the core class aliases. These aliases provide a
  * convenient way of working with the Laravel core classes without
  * having to worry about the namespacing. The developer is also
@@ -39,22 +73,22 @@ spl_autoload_register(array('Laravel\\Autoloader', 'load'));
 Autoloader::$aliases = Config::get('application.aliases');
 
 /**
- * Register the Laravel namespace so that the auto-loader loads it
- * according to the PSR-0 naming conventions. This should provide
- * fast resolution of all core classes.
+ * Register the default timezone for the application. This will
+ * be the default timezone used by all date functions through
+ * throughout the entire application.
  */
-Autoloader::namespaces(array('Laravel' => path('sys')));
+$timezone = Config::get('application.timezone');
+
+date_default_timezone_set($timezone);
 
 /**
- * Register all of the bundles that are defined in the bundle info
- * file within the bundles directory. This informs the framework
- * where the bundle lives and which URIs it responds to.
+ * Finally we'll grab all of the bundles and register them
+ * with the bundle class. All of the bundles are stored in
+ * an array within the application directory.
  */
-$bundles = require path('bundle').'bundles'.EXT;
+$bundles = require path('app').'bundles'.EXT;
 
-foreach ($bundles as $bundle => $value)
+foreach ($bundles as $bundle => $config)
 {
-	if (is_numeric($bundle)) $bundle = $value;
-
-	Bundle::register($bundle, $value);
+	Bundle::register($bundle, $config);
 }

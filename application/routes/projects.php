@@ -3,7 +3,7 @@
 /**
  * The projects dashboard
  */
-Router::register('GET /projects', function()
+Route::get('projects', function()
 {
 	Title::set('Projects Dashboard');
 	return View::make('layouts.default')
@@ -20,7 +20,7 @@ View::composer('projects.index', function($view)
 /**
  * View a project and all of its previews
  */
-Router::register('GET /projects/(:num)', function($project_id)
+Route::get('projects/(:num)', function($project_id)
 {
 	$project = Project::find($project_id)->with('previews');
 
@@ -34,7 +34,7 @@ Router::register('GET /projects/(:num)', function($project_id)
 /**
  * Display create a new project view
  */
-Router::register('GET /projects/new', function()
+Route::get('projects/new', function()
 {
 	Title::set('Create A Project');
 	return View::make('layouts.default')
@@ -44,7 +44,7 @@ Router::register('GET /projects/new', function()
 /**
  * Handle create new project form submission
  */
-Router::register('POST /projects/create', function() 
+Route::post('projects/create', function() 
 {
 	$rules = array(
 		'name' => array('required', 'min:4'),
@@ -77,7 +77,7 @@ Router::register('POST /projects/create', function()
 /**
  * View archived projects
  */
-Router::register('GET /projects/archived', function()
+Route::get('projects/archived', function()
 {
 	Title::set('Archived Projects');
 	return View::make('layouts.default')

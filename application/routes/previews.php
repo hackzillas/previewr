@@ -3,7 +3,7 @@
 /**
  * View a preview
  */
-Router::register('GET /previews/(:num)', function($preview_id)
+Route::get('previews/(:num)', function($preview_id)
 {
 	// TODO: check to see if the project is protected
 	$preview = Preview::find($preview_id);
@@ -12,8 +12,7 @@ Router::register('GET /previews/(:num)', function($preview_id)
 
 	Title::set('View Preview');
 
-	return View::make('layouts.default')
-		->nest('content', 'previews.view');
+	return View::make('layouts.default')->nest('content', 'previews.view');
 });
 
 View::composer('previews.view', function($view)
@@ -26,23 +25,22 @@ View::composer('previews.view', function($view)
 /**
  * Display the create a preview form
  */
-Router::register('GET /previews/new/(:num)', function($project_id)
+Route::get('previews/new/(:num)', function($project_id)
 {
 	Title::set('Create A Preview');
-	return View::make('layouts.default')
-		->nest('content', 'previews.new');
+	
+	return View::make('layouts.default')->nest('content', 'previews.new');
 });
 
 View::composer('previews.new', function($view)
 {
-
 	$view['project'] = Project::find(URI::segment(3));
 });
 
 /**
  * Save a new preview
  */
-Router::register('POST /previews/create/(:num)', function($project_id)
+Route::post('previews/create/(:num)', function($project_id)
 {
 	$rules = array(
 		'name' => array('required', 'min:4'),

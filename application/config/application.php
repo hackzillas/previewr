@@ -142,6 +142,7 @@ return array(
 		'Redis'      => 'Laravel\\Redis',
 		'Request'    => 'Laravel\\Request',
 		'Response'   => 'Laravel\\Response',
+		'Route'      => 'Laravel\\Routing\\Route',
 		'Router'     => 'Laravel\\Routing\\Router',
 		'Schema'     => 'Laravel\\Database\\Schema',
 		'Section'    => 'Laravel\\Section',

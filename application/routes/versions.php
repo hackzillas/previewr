@@ -3,7 +3,7 @@
 /**
  * Display the form to create a new version
  */
-Router::register('GET /versions/new/(:num)', function()
+Route::get('versions/new/(:num)', function()
 {
 	Title::set('Create A Version');
 	return View::make('layouts.default')
@@ -18,7 +18,7 @@ View::composer('versions.new', function($view)
 /**
  * Create the version
  */
-Router::register('POST /versions/create/(:num)', function($preview_id)
+Route::post('versions/create/(:num)', function($preview_id)
 {
 	$rules = array(
 		'name' => array('required', 'min:4', 'max:100'),
