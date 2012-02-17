@@ -5,21 +5,13 @@
  */
 Route::get('previews/(:num)', function($preview_id)
 {
-	// TODO: check to see if the project is protected
-	$preview = Preview::find($preview_id);
+	Title::set('View Preview');
+
+	$preview = Preview::where('id', '=', $preview_id)->with('version')->first();
 
 	View::share('preview', $preview);
 
-	Title::set('View Preview');
-
 	return View::make('layouts.default')->nest('content', 'previews.view');
-});
-
-View::composer('previews.view', function($view)
-{
-	$view['version'] = Version::where('preview_id', '=', URI::segment(2))
-		->order_by('created_at', 'desc')
-		->first();
 });
 
 /**

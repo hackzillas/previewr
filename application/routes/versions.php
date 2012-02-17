@@ -6,8 +6,8 @@
 Route::get('versions/new/(:num)', function()
 {
 	Title::set('Create A Version');
-	return View::make('layouts.default')
-		->nest('content', 'versions.new');
+
+	return View::make('layouts.default')->nest('content', 'versions.new');
 });
 
 View::composer('versions.new', function($view)
@@ -35,20 +35,23 @@ Route::post('versions/create/(:num)', function($preview_id)
 		Input::upload('image', $image_path);
 
 		// create a new version
-		$version = new Version;
+		$version = array(
+			'preview_id' => $preview_id,
+			'name' => Input::get('name'),
+			'description' => Input::get('description'),
+			'image_src' => Input::file('image.name')
+		);
+		$version_id = DB::table('versions')->insert_get_id($version);
 
-		$version->preview_id = $preview_id;
-		$version->name = Input::get('name');
-		$version->description = Input::get('description');
-		$version->image_src = Input::file('image.name');
-
-		$version->save();
+		// set the version number for the preview
+		DB::table('previews')
+			->where('id', '=', $preview_id)
+			->update(array('version_id' => $version_id));
 
 		return Redirect::to('previews/'.$preview_id)
 			->with('message_success', 'Version created successfully!');
 	}
 
-	die('dead');
 	return Redirect::to('versions/new/'.$preview_id)
 		->with_input()
 		->with_errors($validator);

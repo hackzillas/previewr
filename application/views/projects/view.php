@@ -34,11 +34,10 @@
 		</div>
 		
 		<div class="row">
-		<?php foreach($project->previews as $preview): ?>
-		<?php $preview = $preview->attributes; ?>
+		<?php foreach ($previews as $preview): ?>
 			<div class="item span3">
-				<a href="<?php echo URL::to('previews/'.$preview['id']); ?>">
-					<img src="http://placehold.it/400x300" alt="<?php echo $preview['name']; ?>" />
+				<a href="<?php echo URL::to('previews/'.$preview->id); ?>">
+					<img src="<?php echo URL::base().'/uploads/versions/'.$preview->version->image_src; ?>" alt="<?php echo $preview->name; ?>" />
 				</a>
 			</div>
 		<?php endforeach; ?>
