@@ -38,9 +38,9 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'preview',
-			'username' => 'chris',
-			'password' => 'password',
+			'database' => 'previewr',
+			'username' => '',
+			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
