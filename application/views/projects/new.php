@@ -31,7 +31,7 @@
 			<div class="form-actions">
 				<?php echo Form::submit('Create Project', array('class' => 'btn btn-primary btn-large')); ?>
 				&nbsp;or&nbsp;
-				<?php echo HTML::link('projects', 'Cancel', array('class' => '')); ?>
+				<?php echo HTML::link('projects', 'Cancel'); ?>
 			</div>
 		</fieldset>
 

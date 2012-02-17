@@ -22,20 +22,15 @@
 	</aside>
 
 	<section id="main" class="span9 grid">
-		<h1 class="inline-block title">Previews for <?php echo $project->name; ?></h1>
-		<div class="btn-group right">
-			<a class="btn" rel="tooltip" href="<?php echo URL::to('previews/new/'.$project_id); ?>" data-original-title="New Preview"><i class="icon-plus"></i><div class="hidden">Create a New Preview</div></a>
-		</div>
-		<div class="btn-group right account">
-			<a class="btn" href="#">Account</a>
-			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			<span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu">
-				<li class=""><a href="<?php echo URL::to('projects'); ?>">Projects</a></li>
-				<li class="divider"></li>
-				<li class=""><a href="<?php echo URL::to('auth/logout'); ?>">Log Out</a></li>
-		 	 </ul>
+		<div class="title-bar">
+			<h1 class="inline-block title">Previews for <?php echo $project->name; ?></h1>
+			<div class="controls">
+				<a class="btn btn-edit" href="#"><i class="icon-cog"></i>Edit</a>
+				<div class="btn-group">
+					<a class="btn" rel="tooltip" href="<?php echo URL::to('previews/new/'.$project->id); ?>" data-original-title="New Preview"><i class="icon-plus"></i><div class="hidden">Create a New Preview</div></a>
+					<a class="btn" rel="tooltip" href="<?php echo URL::to('previews/archived/'.$project->id); ?>" data-original-title="Archived Previews"><i class="icon-folder-close"></i><div class="hidden">View Archived Previews</div></a>
+				</div>
+			</div>
 		</div>
 		
 		<div class="row">
