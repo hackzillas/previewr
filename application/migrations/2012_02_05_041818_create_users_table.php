@@ -9,6 +9,7 @@ class Create_Users_Table {
 	 */
 	public function up()
 	{
+		// Create the users table
 		Schema::table('users', function($table)
 		{
 			$table->create();
@@ -19,6 +20,14 @@ class Create_Users_Table {
 			$table->string('password');
 			$table->timestamps();
 		});
+
+		// Insert a default user
+		$user = array(
+			'name' => 'Test User',
+			'email' => 'default@gmail.com',
+			'password' => Hash::make('password')
+		);
+		DB::table('users')->insert($user);
 	}
 
 	/**
