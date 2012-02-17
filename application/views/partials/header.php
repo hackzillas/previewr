@@ -19,3 +19,10 @@
 
 	</head>
 	<body data-spy="scroll" data-target=".subnav" data-offset="50" class="<?php echo Title::get_page_class(); ?>">
+
+		<div class="alert alert-header">
+			<div class="container">
+				<a class="close" data-dismiss="alert">×</a>
+				This is just some alert text! Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra.
+			</div>
+		</div>
