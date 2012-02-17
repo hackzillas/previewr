@@ -15,6 +15,11 @@ class Preview extends Eloquent\Model {
 		return $this->has_one('Project_Status');
 	}
 
+	public function version()
+	{
+		return $this->has_one('Version');
+	}
+
 	public function versions()
 	{
 		return $this->has_many('Version');
