@@ -4,6 +4,8 @@ require('routes/projects.php');
 require('routes/previews.php');
 require('routes/versions.php');
 
+Bundle::start('eloquent');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
