@@ -19,8 +19,9 @@
 			</div>
 
 			<div class="form-actions">
-				<?php echo Form::submit('Create Project', array('class' => 'btn btn-primary')); ?>
-				<?php echo HTML::link('previews/'.URI::segment(3), 'Cancel', array('class' => 'btn')); ?>
+				<?php echo Form::submit('Create Project', array('class' => 'btn btn-primary btn-large')); ?>
+				&nbsp;or&nbsp;
+				<?php echo HTML::link('projects/'.URI::segment(3), 'Cancel'); ?>
 			</div>
 		</fieldset>
 
