@@ -14817,16 +14817,17 @@ a.thumbnail:hover {
 }
 /* =========================================================== */
 /* ! Comments
-/* =========================================================== */ul#comments {
+/* =========================================================== */#comments {
   height: 278px;
   left: 29px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
   top: 35px;
   width: 446px;
   margin: 0;
 }
-ul#comments .comment {
+#comments .comment {
   background: url('images/comment-sep.jpg') repeat-x bottom;
   list-style: none;
   padding: 20px 0 20px 20px;
@@ -14838,97 +14839,97 @@ ul#comments .comment {
   *zoom: 1;
   *zoom: 1;
 }
-ul#comments .comment .content {
+#comments .comment .content {
   margin-bottom: 7px;
   width: 300px;
 }
-ul#comments .comment .content p {
+#comments .comment .content p {
   font-size: 12px;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment:before, ul#comments .comment:after {
+#comments .comment:before, #comments .comment:after {
   display: table;
   content: "";
 }
-ul#comments .comment:after {
+#comments .comment:after {
   clear: both;
 }
-ul#comments .comment .span1 {
+#comments .comment .span1 {
   margin-left: 0;
 }
-ul#comments .comment:last-child {
+#comments .comment:last-child {
   background-image: none;
 }
-ul#comments .comment .controls {
+#comments .comment .controls {
   position: absolute;
   right: 20px;
   top: 15px;
 }
-ul#comments .comment .controls .btn {
+#comments .comment .controls .btn {
   margin: 0 0 0 -1px;
   padding: 1px 9px 0px;
 }
-ul#comments .comment .comment-author {
+#comments .comment .comment-author {
   font-size: 12px;
   margin-bottom: 5px;
 }
-ul#comments .comment .comment-author .label {
+#comments .comment .comment-author .label {
   margin-right: 10px;
 }
-ul#comments .comment.by-author {
+#comments .comment.by-author {
   padding: 20px 0 20px 20px;
 }
-ul#comments .comment.by-author .span1 {
+#comments .comment.by-author .span1 {
   margin-left: 30px;
 }
-ul#comments .comment.by-author .span3 {
+#comments .comment.by-author .span3 {
   margin-left: 0px;
   margin-right: 30px;
 }
-ul#comments .comment.by-author .controls {
+#comments .comment.by-author .controls {
   position: absolute;
   right: 28px;
   top: 100px;
 }
-ul#comments .comment.by-author .controls .btn {
+#comments .comment.by-author .controls .btn {
   margin: 0 0 0 -1px;
   padding: 2px 9px 1px;
 }
-ul#comments.body {
+#comments.body {
   padding: 0;
 }
 #comment-form {
