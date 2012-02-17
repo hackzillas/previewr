@@ -81,9 +81,9 @@ class Bundle {
 			throw new \Exception("Bundle [$bundle] has not been installed.");
 		}
 
-		// Each bundle may have a "start" script which is responsible for preparing
-		// the bundle for use by the application. The start script may register any
-		// classes the bundle uses with the auto-loader, etc.
+		// Each bundle may have a start script which is responsible for preparing
+		// the bundle for use by the application. The start script may register
+		// any classes the bundle uses with the auto-loader, etc.
 		if (file_exists($path = static::path($bundle).'start'.EXT))
 		{
 			require $path;
@@ -94,7 +94,7 @@ class Bundle {
 		// start script for reverse routing efficiency purposes.
 		static::routes($bundle);
 
-		Event::fire("started: {$bundle}");
+		Event::fire("laravel.started: {$bundle}");
 
 		static::$started[] = strtolower($bundle);
 	}
@@ -242,6 +242,8 @@ class Bundle {
 	 */
 	public static function path($bundle)
 	{
+		if (is_null($bundle)) return static::path(DEFAULT_BUNDLE);
+
 		return ($bundle == DEFAULT_BUNDLE) ? path('app') : static::location($bundle);
 	}
 
