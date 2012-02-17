@@ -38,3 +38,5 @@ Autoloader::directories(array(
 	path('app').'models',
 	path('app').'libraries',
 ));
+
+Bundle::start('eloquent');
