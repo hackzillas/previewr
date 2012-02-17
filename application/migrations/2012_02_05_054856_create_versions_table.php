@@ -17,6 +17,7 @@ class Create_Versions_Table {
 			$table->integer('preview_id');
 			$table->string('name');
 			$table->string('description');
+			$table->string('image_src');
 			$table->timestamps();
 		});
 	}
