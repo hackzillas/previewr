@@ -18,6 +18,7 @@ class Create_Projects_Table {
 			$table->string('name');
 			$table->string('description');
 			$table->integer('private')->length(1);
+			$table->integer('active')->length(1);
 			$table->timestamps();
 		});
 	}
