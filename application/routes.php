@@ -137,8 +137,8 @@ Event::listen('500', function()
 Route::filter('before', function()
 {
 	Asset::container('header')
-		->add('bootstrap', 'css/bootstrap.css')
-		->add('bootstrap-responsive', 'css/bootstrap-responsive.css');
+		->add('bootstrap', 'css/application.css')
+		->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css');
 
 	Asset::container('footer')
 		->add('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
