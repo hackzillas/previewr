@@ -53,18 +53,6 @@ error_reporting(-1);
 ini_set('display_errors', Config::get('error.display'));
 
 /**
- * Determine if we need to set the application key to a random
- * string for the developer. This provides the developer with
- * a zero configuration install process.
- */
-if (Config::get('application.key') == '')
-{
-	ob_start() and with(new CLI\Tasks\Key)->generate();
-
-	ob_end_clean();
-}
-
-/**
  * Even though "Magic Quotes" are deprecated in PHP 5.3, they may
  * still be enabled on the server. To account for this, we will
  * strip slashes on all input arrays if magic quotes are turned

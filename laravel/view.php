@@ -95,8 +95,7 @@ class View implements ArrayAccess {
 
 		// Views may have the normal PHP extension or the Blade PHP extension, so
 		// we need to check if either of them exist in the base views directory
-		// for the bundle. We'll check for the PHP extension first since that
-		// is probably the more common of the two.
+		// for the bundle and return the first one we find.
 		foreach (array(EXT, BLADE_EXT) as $extension)
 		{
 			if (file_exists($path = $root.Bundle::element($view).$extension))
@@ -200,7 +199,7 @@ class View implements ArrayAccess {
 	{
 		// To allow bundles or other pieces of the application to modify the
 		// view before it is rendered, we will fire an event, passing in the
-		// view instance so it can modified by any of the listeners.
+		// view instance so it can modified.
 		Event::fire("laravel.composing: {$this->view}", array($this));
 
 		$data = $this->data();
@@ -237,8 +236,7 @@ class View implements ArrayAccess {
 
 		// All nested views and responses are evaluated before the main view.
 		// This allows the assets used by nested views to be added to the
-		// asset container before the main view is evaluated and dumps
-		// the links to the assets into the HTML.
+		// asset container before the main view is evaluated.
 		foreach ($data as &$value) 
 		{
 			if ($value instanceof View or $value instanceof Response)
@@ -259,14 +257,12 @@ class View implements ArrayAccess {
 	{
 		// Compiled views are stored in the storage directory using the MD5
 		// hash of their path. This allows us to easily store the views in
-		// the directory without worrying about re-creating the entire
-		// application view directory structure.
+		// the directory without worrying about structure.
 		$compiled = path('storage').'views/'.md5($this->path);
 
 		// The view will only be re-compiled if the view has been modified
 		// since the last compiled version of the view was created or no
-		// compiled view exists. Otherwise, the path will be returned
-		// without re-compiling the view.
+		// compiled view exists at all in storage.
 		if ( ! file_exists($compiled) or (filemtime($this->path) > filemtime($compiled)))
 		{
 			file_put_contents($compiled, Blade::compile($this->path));
