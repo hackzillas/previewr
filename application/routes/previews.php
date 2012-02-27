@@ -7,9 +7,14 @@ Route::get('previews/(:num)', function($preview_id)
 {
 	Title::set('View Preview');
 
-	$preview = Preview::where('id', '=', $preview_id)->with('version')->first();
+	$preview = Preview::where('id', '=', $preview_id)
+		->with('version')
+		->first();
+
+	$comments = Comment::where('preview_id', '=', $preview_id)->get();
 
 	View::share('preview', $preview);
+	View::share('comments', $comments);
 
 	return View::make('layouts.default')->nest('content', 'previews.view');
 });

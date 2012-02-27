@@ -45,8 +45,7 @@ if (is_file($routes_file)) include $routes_file;
  */
 Route::get('/', function()
 {
-	return View::make('layouts.default')
-		->nest('content', 'auth.index');
+	return View::make('layouts.default')->nest('content', 'auth.index');
 });
 
 /**

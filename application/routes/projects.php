@@ -14,7 +14,7 @@ View::composer('projects.index', function($view)
 {
 	$view['projects'] = Project::where('user_id', '=', Session::get(Auth::user_key))
 		->where('active', '=', 1)
-		->get();
+		->paginate(10);
 });
 
 /**
@@ -25,7 +25,9 @@ Route::get('projects/(:num)', function($project_id)
 	Title::set($project->name);
 
 	$project = Project::find($project_id);
-	$previews = Preview::where('project_id', '=', $project_id)->with('version')->get();
+	$previews = Preview::where('project_id', '=', $project_id)
+		->with('version')
+		->paginate(10);
 
 	View::share('project', $project);
 	View::share('previews', $previews);
@@ -65,6 +67,9 @@ Route::post('projects/create', function()
 		$project->active = 1;
 
 		$project->save();
+
+		// set the success message
+		Message::add('success', 'Project created successfully!');
 
 		// redirect with success message to projects page
 		return Redirect::to('projects')
