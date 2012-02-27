@@ -143,7 +143,7 @@ Route::filter('before', function()
 		->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css');
 
 	Asset::container('footer')
-		->add('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+		->add('jquery', 'js/jquery.min.js')
 		->add('widgets', 'http://platform.twitter.com/widgets.js')
 		->add('collapse', 'js/bootstrap-collapse.js')
 		->add('tooltip', 'js/bootstrap-tooltip.js')
