@@ -45,7 +45,7 @@
       }
 
       $parent = $(selector)
-      $parent.trigger('close')
+      $parent.parent().trigger('close')
 
       e && e.preventDefault()
 

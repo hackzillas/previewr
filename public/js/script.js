@@ -7,26 +7,33 @@ $(function() {
 	$('[rel="tooltip"]').tooltip();
 
 	// Dropdowns
-	$('.dropdown-toggle').dropdown()	
+	$('.dropdown-toggle').dropdown();
 
 	// Comment Controls (show on hover)
 	$('.comment .controls').animate({
-		"opacity": "0"
-	},0);
-	$('.comment').mouseenter(function(){
+		'opacity': '0'
+	}, 0);
+
+	$('.comment').mouseenter(function() {
 		$(this).find('.controls').animate({
-			"opacity": "1.0"
+			'opacity': '1.0'
 		});
 	});
-	$('.comment').mouseleave(function(){
+
+	$('.comment').mouseleave(function() {
 		$(this).find('.controls').animate({
-			"opacity": "0.0"
+			'opacity': '0.0'
 		});
 	});
 
 	// Toggle Comments Popover
-	$("#comments-toggle").click(function() {
-		$("#comments-popover").fadeToggle(400, "linear");
+	$('#comments-toggle').click(function() {
+		$('#comments-popover').fadeToggle(400, 'linear');
+	});
+
+	// Hide messages
+	$('[data-dismiss="alert"]').click(function() {
+		$(this).parents('.alert').fadeOut().slideUp();
 	});
 
 });
