@@ -1,10 +1,9 @@
 <?php
 
-require('routes/projects.php');
-require('routes/previews.php');
-require('routes/versions.php');
-
-Bundle::start('eloquent');
+// automatically pull in routes from the 'routes' directory if there is a
+// file that matches the first URI segment
+$routes_file = path('app').'routes'.DS.URI::segment(1).EXT;
+if (is_file($routes_file)) include $routes_file;
 
 /*
 |--------------------------------------------------------------------------
