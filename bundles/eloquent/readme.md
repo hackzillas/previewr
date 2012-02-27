@@ -2,7 +2,22 @@
 
 ## Installation
 
+### Aritsan
+
 	php artisan bundle:install eloquent
+
+### Bundle Registration
+
+Add the following to your **application/bundles.php** file:
+
+	'eloquent' => array(
+		'autoloads' => array(
+			'map' => array(
+				'Eloquent\\Model'    => '(:bundle)/model.php',
+				'Eloquent\\Hydrator' => '(:bundle)/hydrator.php',
+			),
+		),
+	),
 
 ## Guide
 
@@ -15,7 +30,7 @@
 
 An ORM is an [object-relational mapper](http://en.wikipedia.org/wiki/Object-relational_mapping), and Laravel has one that you will absolutely love to use. It is named "Eloquent" because it allows you to work with your database objects and relationships using an eloquent and expressive syntax. In general, you will define one Eloquent model for each table in your database. To get started, let's define a simple model:
 
-	class User extends Eloquent {}
+	class User extends Eloquent\Model {}
 
 Nice! Notice that our model extends the **Eloquent** class. This class will provide all of the functionality you need to start working eloquently with your database.
 
@@ -31,7 +46,7 @@ Eloquent makes a few basic assumptions about your database structure:
 
 Sometimes you may wish to use a table name other than the plural form of your model. No problem. Just add a static **table** property your model:
 
-	class User extends Eloquent {
+	class User extends Eloquent\Model {
 
 	     public static $table = 'my_users';
 
@@ -113,7 +128,7 @@ Updating models is just as simple. Instead of instantiating a new model, retriev
 
 Need to maintain creation and update timestamps on your database records? With Eloquent, you don't have to worry about it. Just add a static **timestamps** property to your model:
 
-	class User extends Eloquent {
+	class User extends Eloquent\Model {
 
 	     public static $timestamps = true;
 
@@ -139,7 +154,7 @@ To define a relationship on an Eloquent model, you simply create a method that r
 
 A one-to-one relationship is the most basic form of relationship. For example, let's pretend a user has one phone. Simply describe this relationship to Eloquent:
 
-	class User extends Eloquent {
+	class User extends Eloquent\Model {
 
 	     public function phone()
 	     {
@@ -168,7 +183,7 @@ Want to just retrieve the user's phone without calling the first method? No prob
 
 What if you need to retrieve a phone's user? Since the foreign key (**user\_id**) is on the phones table, we should describe this relationship using the **belongs\_to** method. It makes sense, right? Phones belong to users. When using the **belongs\_to** method, the name of the relationship method should correspond to the foreign key (sans the **\_id**). Since the foreign key is **user\_id**, your relationship method should be named **user**:
 
-	class Phone extends Eloquent {
+	class Phone extends Eloquent\Model {
 
 	     public function user()
 	     {
@@ -188,7 +203,7 @@ Great! You can now access a User model through a Phone model using either your r
 
 Assume a blog post has many comments. It's easy to define this relationship using the **has_many** method:
 
-	class Post extends Eloquent {
+	class Post extends Eloquent\Model {
 
 	     public function comments()
 	     {
@@ -239,7 +254,7 @@ Many-to-many relationships are the most complicated of the three relationships. 
 
 Now you're ready to define the relationship on your models using the **has\_and\_belongs\_to\_many** method:
 
-	class User extends Eloquent {
+	class User extends Eloquent\Model {
 
 	     public function roles()
 	     {
@@ -258,7 +273,7 @@ Or, as usual, you may retrieve the relationship through the dynamic roles proper
 
 As you may have noticed, the default name of the intermediate table is the plural names of the two related models arranged alphabetically and concatenated by an underscore. However, you are free to specify your own table name. Simply pass the table name in the second parameter to the **has\_and\_belongs\_to\_many** method:
 
-	class User extends Eloquent {
+	class User extends Eloquent\Model {
 
 	     public function roles()
 	     {
@@ -272,7 +287,7 @@ As you may have noticed, the default name of the intermediate table is the plura
 
 Eager loading exists to alleviate the N + 1 query problem. Exactly what is this problem? Well, pretend each Book belongs to an Author. We would describe this relationship like so:
 
-	class Book extends Eloquent {
+	class Book extends Eloquent\Model {
 
 	     public function author()
 	     {
