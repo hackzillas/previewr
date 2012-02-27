@@ -33,18 +33,8 @@
 			</div>
 		</div>
 		<div class="row">
-		<?php foreach($projects as $project): ?>
+		<?php foreach($projects->results as $project): ?>
 		<?php $project = $project->attributes; ?>
-			<div class="item span3">
-				<a href="<?php echo URL::to('projects/'.$project['id']); ?>">
-					<img src="http://placehold.it/400x300" alt="<?php echo $project['name']; ?>" />
-				</a>
-			</div>
-			<div class="item span3">
-				<a href="<?php echo URL::to('projects/'.$project['id']); ?>">
-					<img src="http://placehold.it/400x300" alt="<?php echo $project['name']; ?>" />
-				</a>
-			</div>
 			<div class="item span3">
 				<a href="<?php echo URL::to('projects/'.$project['id']); ?>">
 					<img src="http://placehold.it/400x300" alt="<?php echo $project['name']; ?>" />
@@ -53,18 +43,7 @@
 		<?php endforeach; ?>
 		</div>
 		
-		<div class="pagination">
-			<ul>
-				<li><a href="#">Prev</a></li>
-				<li class="active">
-					<a href="#">1</a>
-				</li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">Next</a></li>
-			</ul>
-		</div>
+		<?php echo $projects->links(); ?>
 	</section>
 
 </div>

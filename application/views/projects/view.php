@@ -34,7 +34,7 @@
 		</div>
 		
 		<div class="row">
-		<?php foreach ($previews as $preview): ?>
+		<?php foreach ($previews->results as $preview): ?>
 			<div class="item span3">
 				<a href="<?php echo URL::to('previews/'.$preview->id); ?>">
 					<img src="<?php echo URL::base().'/uploads/versions/'.$preview->version->image_src; ?>" alt="<?php echo $preview->name; ?>" />
@@ -43,18 +43,7 @@
 		<?php endforeach; ?>
 		</div>
 		
-		<div class="pagination">
-			<ul>
-				<li><a href="#">Prev</a></li>
-				<li class="active">
-					<a href="#">1</a>
-				</li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">Next</a></li>
-			</ul>
-		</div>
+		<?php echo $previews->links(); ?>
 	</section>
 
 </div>
