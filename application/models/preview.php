@@ -24,4 +24,9 @@ class Preview extends Eloquent\Model {
 	{
 		return $this->has_many('Version');
 	}
+
+	public function comments()
+	{
+		return $this->has_many('Comment');
+	}
 }
