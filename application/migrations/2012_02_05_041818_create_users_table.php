@@ -18,6 +18,7 @@ class Create_Users_Table {
 			$table->string('name');
 			$table->string('email');
 			$table->string('password');
+			$table->integer('user_level')->limit(2);
 			$table->timestamps();
 		});
 
