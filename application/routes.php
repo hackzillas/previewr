@@ -163,3 +163,13 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('/');
 });
+
+Route::filter('auth-admin', function()
+{
+	if (Auth::user()->user_level > 1)
+	{
+		Message::add('warning', 'You do not have permission to do that!');
+
+		return Redirect::to('/');
+	}
+});
