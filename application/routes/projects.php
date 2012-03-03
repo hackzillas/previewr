@@ -73,6 +73,12 @@ Route::post('projects/create', function()
 
 		if ($project->save())
 		{
+			// create the uploads directory if it doesn't exist yet
+			if ( ! is_dir(path('public').'uploads'))
+			{
+				mkdir(path('public').'uploads');
+			}
+
 			// set the path for the project directory
 			$project_directory = path('public').'uploads'.DS.$project->id;
 
