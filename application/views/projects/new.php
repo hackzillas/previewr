@@ -1,5 +1,5 @@
 <div id="content" class="row">
-	<?php echo Form::open('projects/create', 'POST', array('class' => 'span8 offset2 form-horizontal')); ?>
+	<?php echo Form::open_for_files('projects/create', 'POST', array('class' => 'span8 offset2 form-horizontal')); ?>
 
 		<fieldset>
 			<legend>Create A New Project</legend>

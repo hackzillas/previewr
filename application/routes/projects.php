@@ -10,11 +10,14 @@ Route::get('projects', function()
 	return View::make('layouts.default')->nest('content', 'projects.index');
 });
 
+/**
+ * Get all the projects with the latest preview
+ */
 View::composer('projects.index', function($view)
 {
-	$view['projects'] = Project::where('user_id', '=', Session::get(Auth::user_key))
-		->where('active', '=', 1)
-		->paginate(10);
+	$view['projects'] = DB::table('projects')
+		->where('user_id', '=', Session::get(Auth::user_key))
+		->paginate(9);
 });
 
 /**
@@ -27,7 +30,7 @@ Route::get('projects/(:num)', function($project_id)
 	$project = Project::find($project_id);
 	$previews = Preview::where('project_id', '=', $project_id)
 		->with('version')
-		->paginate(10);
+		->paginate(9);
 
 	View::share('project', $project);
 	View::share('previews', $previews);
@@ -36,7 +39,7 @@ Route::get('projects/(:num)', function($project_id)
 });
 
 /**
- * Display create a new project view
+ * Display form to create a new project
  */
 Route::get('projects/new', function()
 {
@@ -52,7 +55,8 @@ Route::post('projects/create', function()
 {
 	$rules = array(
 		'name' => array('required', 'min:4'),
-		'description' => array('min:10')
+		'description' => array('min:10'),
+		'image' => array('mimes:jpeg,jpg,png,gif')
 	);
 	$validator = Validator::make(Input::all(), $rules);
 
@@ -65,15 +69,24 @@ Route::post('projects/create', function()
 		$project->description = Input::get('description');
 		$project->private = (Input::get('visibility')) ? 1 : 0;
 		$project->active = 1;
+		$project->image_src = Input::file('image.name');
 
-		$project->save();
+		if ($project->save())
+		{
+			// set the path for the project directory
+			$project_directory = path('public').'uploads'.DS.$project->id;
 
-		// set the success message
-		Message::add('success', 'Project created successfully!');
+			// make the project directory
+			mkdir($project_directory);
 
-		// redirect with success message to projects page
-		return Redirect::to('projects')
-			->with('message_success', 'Project created successfully!');
+			// upload the image
+			Input::upload('image', $project_directory.DS.Input::file('image.name'));
+
+			// set the success message
+			Message::add('success', 'Project created successfully!');
+
+			return Redirect::to('projects');
+		}
 	}
 
 	return Redirect::to('projects/new')
