@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="form-actions">
-				<?php echo Form::submit('Create Project', array('class' => 'btn btn-primary btn-large')); ?>
+				<?php echo Form::submit('Create Version', array('class' => 'btn btn-primary btn-large')); ?>
 				&nbsp;or&nbsp;
 				<?php echo HTML::link('previews/'.$preview->id, 'Cancel'); ?>
 			</div>
