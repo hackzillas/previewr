@@ -17,7 +17,7 @@ class Create_Previews_Table {
 			$table->integer('project_id');
 			$table->string('name');
 			$table->string('description');
-			$table->int('version_id');
+			$table->integer('version_id');
 			$table->integer('preview_status_id');
 			$table->timestamps();
 		});
