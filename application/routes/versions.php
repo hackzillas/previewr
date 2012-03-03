@@ -20,6 +20,8 @@ View::composer('versions.new', function($view)
  */
 Route::post('versions/create/(:num)', function($preview_id)
 {
+	$preview = Preview::find($preview_id);
+
 	$rules = array(
 		'name' => array('required', 'min:4', 'max:100'),
 		'description' => array('min:10'),
@@ -29,7 +31,7 @@ Route::post('versions/create/(:num)', function($preview_id)
 
 	if ($validator->valid())
 	{
-		$image_path = path('public').'/uploads/versions/'.Input::file('image.name');
+		$image_path = path('public').DS.'uploads'.DS.$preview->project_id.DS.Input::file('image.name');
 
 		// upload the image
 		Input::upload('image', $image_path);
