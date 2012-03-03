@@ -12897,9 +12897,20 @@ a.thumbnail:hover {
   padding-top: 9px;
   padding-bottom: 10px;
 }
+.row.item {
+  margin-bottom: 10px;
+}
+.project-preview {
+  display: inline-block;
+  height: 75px;
+  width: 270px;
+}
 /* =========================================================== */
 /* ! Application Type
 /* =========================================================== */
+::-webkit-input-placeholder {
+  line-height: 1.15em;
+}
 .title {
   font-size: 18px;
   text-shadow: 0 1px 0 #FFF;
