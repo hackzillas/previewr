@@ -17,6 +17,7 @@ class Create_Projects_Table {
 			$table->integer('user_id');
 			$table->string('name');
 			$table->string('description');
+			$table->string('image_src');
 			$table->integer('private')->length(1);
 			$table->integer('active')->length(1);
 			$table->timestamps();
