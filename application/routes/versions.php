@@ -46,12 +46,17 @@ Route::post('versions/create/(:num)', function($preview_id)
 		$version_id = DB::table('versions')->insert_get_id($version);
 
 		// set the version number for the preview
-		DB::table('previews')
+		$version = DB::table('previews')
 			->where('id', '=', $preview_id)
 			->update(array('version_id' => $version_id));
 
-		return Redirect::to('previews/'.$preview_id)
-			->with('message_success', 'Version created successfully!');
+		if ($version)
+		{
+			Message::add('success', 'Version created successfully!');
+
+			return Redirect::to('previews/'.$preview_id)
+				->with('message_success', 'Version created successfully!');
+		}
 	}
 
 	return Redirect::to('versions/new/'.$preview_id)
