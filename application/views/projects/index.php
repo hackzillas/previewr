@@ -32,16 +32,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-		<?php foreach($projects->results as $project): ?>
-		<?php $project = $project->attributes; ?>
-			<div class="item span3">
-				<a href="<?php echo URL::to('projects/'.$project['id']); ?>">
-					<img src="http://placehold.it/400x300" alt="<?php echo $project['name']; ?>" />
-				</a>
+		<?php foreach ($projects->results as $project): ?>
+			<div class="item row">
+				<?php if (empty($project->image_src)):
+					$background = 'http://placehold.it/270x75';
+				else:
+					$background = URL::to('uploads/'.$project->id.'/').$project->image_src;
+				endif; ?>
+				<a href="<?php echo URL::to('projects/'.$project->id); ?>" class="span3 project-preview" style="background: url('<?php echo $background; ?>') no-repeat center center;"></a>
+				<div class="span6">
+					<h2><a href="<?php echo URL::to('projects/'.$project->id); ?>"><?php echo $project->name; ?></a></h2>
+					<p><?php echo $project->description; ?></p>
+				</div>
 			</div>
 		<?php endforeach; ?>
-		</div>
 		
 		<?php echo $projects->links(); ?>
 	</section>
