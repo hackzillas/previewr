@@ -19,6 +19,13 @@
 			</div>
 
 			<div class="control-group">
+				<?php echo Form::label('image', 'Image'); ?>
+				<div class="controls">
+					<?php echo Form::file('image', array('class' => 'input-file')); ?>
+				</div>
+			</div>
+
+			<div class="control-group">
 				<?php echo Form::label('visibility', 'Private or Public?', array('class' => 'control-label')); ?>
 				<div class="controls">
 					<label for="visibility" class="checkbox">
