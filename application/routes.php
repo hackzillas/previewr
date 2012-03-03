@@ -1,10 +1,5 @@
 <?php
 
-// automatically pull in routes from the 'routes' directory if there is a
-// file that matches the first URI segment
-$routes_file = path('app').'routes'.DS.URI::segment(1).EXT;
-if (is_file($routes_file)) include $routes_file;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -38,13 +33,38 @@ if (is_file($routes_file)) include $routes_file;
 |
 */
 
-// Route::register('GET /projects', function() {return 'dead';});
+/**
+ * A group for routes that require authentication
+ */
+Route::group(array('before' => 'auth'), function()
+{
+	// automatically pull in routes from the 'routes' directory if there is a
+	// file that matches the first URI segment
+	$routes_file = path('app').'routes'.DS.URI::segment(1).EXT;
+	
+	if (is_file($routes_file))
+	{
+		include $routes_file;
+	}
+
+	/**
+	 * Log a user out
+	 */
+	Route::get('auth/logout', function()
+	{
+		Auth::logout();
+
+		return Redirect::to('/');
+	});
+});
 
 /**
  * The homepage
  */
 Route::get('/', function()
 {
+	if ( ! Auth::guest()) return Redirect::to('projects');
+
 	return View::make('layouts.default')->nest('content', 'auth.index');
 });
 
@@ -69,16 +89,6 @@ Route::post('auth/login', function()
 	}
 
 	return Redirect::to('/')->with_input()->with_errors($validator);
-});
-
-/**
- * Log a user out
- */
-Route::get('auth/logout', function()
-{
-	Auth::logout();
-
-	return Redirect::to('/');
 });
 
 /*
