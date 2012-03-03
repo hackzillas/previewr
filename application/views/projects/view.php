@@ -43,7 +43,7 @@
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-				<p style="text-align: center; margin: 25px 0 55px;">There are no previews for this project yet.</p>
+				<p class="empty">There are no previews for this project yet. Would you like to <?php echo HTML::link('previews/new/'.$project->id, 'create one'); ?>?</p>
 			<?php endif; ?>
 		</div>
 		

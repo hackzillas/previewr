@@ -48,7 +48,7 @@
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-				<p style="margin: 50px 0; text-align: center;">There are no projects yet. Would you like to <?php echo HTML::link('projects/new', 'create one'); ?>?</p>
+				<p class="empty">There are no projects yet. Would you like to <?php echo HTML::link('projects/new', 'create one'); ?>?</p>
 			<?php endif; ?>
 		
 		<?php echo $projects->links(); ?>
