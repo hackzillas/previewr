@@ -35,7 +35,7 @@
 						</div>
 					</li>
 				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+			</div><!-- .nav-collapse -->
+		</div><!-- .container -->
+	</div><!-- .navbar-inner -->
+</div><!-- .navbar -->

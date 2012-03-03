@@ -5,7 +5,7 @@
 	?>
 
 	<?php if ( ! empty($preview->version)): ?>
-		<img src="<?php echo URL::to('uploads/versions/'); ?><?php echo $preview->version->image_src; ?>" alt="<?php echo $preview->version->name; ?>" title="<?php echo $preview->version->description; ?>" style="<?php echo $styles; ?>"/>
+		<img src="<?php echo URL::to('uploads'.DS.$preview->project_id).DS.$preview->version->image_src; ?>" alt="<?php echo $preview->version->name; ?>" title="<?php echo $preview->version->description; ?>" style="<?php echo $styles; ?>"/>
 	<?php else: ?>
 		<p style="margin: 75px 0; text-align: center; color: #ddd;">No versions have been created yet for this preview. Would you like to <?php echo HTML::link('versions/new/'.$preview->id, 'upload one'); ?>?</p>
 	<?php endif; ?>

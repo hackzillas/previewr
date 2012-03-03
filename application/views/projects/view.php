@@ -34,13 +34,17 @@
 		</div>
 		
 		<div class="row">
-		<?php foreach ($previews->results as $preview): ?>
-			<div class="item span3">
-				<a href="<?php echo URL::to('previews/'.$preview->id); ?>">
-					<img src="<?php echo URL::base().'/uploads/versions/'.$preview->version->image_src; ?>" alt="<?php echo $preview->name; ?>" />
-				</a>
-			</div>
-		<?php endforeach; ?>
+			<?php if (count($previews->results) > 0): ?>
+				<?php foreach ($previews->results as $preview): ?>
+					<div class="item span3">
+						<a href="<?php echo URL::to('previews/'.$preview->id); ?>">
+							<img src="<?php echo URL::base().DS.'uploads'.DS.$project->id.DS.$preview->version->image_src; ?>" alt="<?php echo $preview->name; ?>" />
+						</a>
+					</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<p style="text-align: center; margin: 25px 0 55px;">There are no previews for this project yet.</p>
+			<?php endif; ?>
 		</div>
 		
 		<?php echo $previews->links(); ?>
