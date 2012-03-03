@@ -20,24 +20,28 @@
 	</div>
 	<div id="comments-popover">
 		<ul id="comments">
-			<?php foreach ($comments as $comment): ?>
-				<li class="comment new">
-					<div class="span1 avatar">
-						<img src="http://placekitten.com/100/100" alt="" />
-					</div>
-					<div class="span3">
-						<div class="btn-group right controls">
-							<a rel="tooltip" href="#" data-original-title="Edit Comment" class="btn"><i class="icon-pencil"></i></a>
-							<a rel="tooltip" href="#" data-original-title="Delete Comment" class="btn"><i class="icon-remove"></i></a>
+			<?php if (count($comments) > 0): ?>
+				<?php foreach ($comments as $comment): ?>
+					<li class="comment new">
+						<div class="span1 avatar">
+							<img src="http://placekitten.com/100/100" alt="" />
 						</div>
-						<p class="comment-author"><span class="label label-success">New!</span></p>
-						<div class="content">
-							<p><?php echo $comment->body; ?></p>
+						<div class="span3">
+							<div class="btn-group right controls">
+								<a rel="tooltip" href="#" data-original-title="Edit Comment" class="btn"><i class="icon-pencil"></i></a>
+								<a rel="tooltip" href="#" data-original-title="Delete Comment" class="btn"><i class="icon-remove"></i></a>
+							</div>
+							<p class="comment-author"><span class="label label-success">New!</span></p>
+							<div class="content">
+								<p><?php echo $comment->body; ?></p>
+							</div>
+							<p class="comment-meta"><small>Posted on <?php echo $comment->created_at; ?></small></p>
 						</div>
-						<p class="comment-meta"><small>Posted on <?php echo $comment->created_at; ?></small></p>
-					</div>
-				</li>
-			<?php endforeach; ?>
+					</li>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<p class="empty">There are no comments on this preview yet.</p>
+			<?php endif; ?>
 		</ul>
 		<?php echo Form::open('comments/create/'.$preview->id, 'post', array('id' => 'comment-form')); ?>
 			<?php echo Form::text('comment', '', array('placeholder' => 'Type a comment then hit enter')); ?>
