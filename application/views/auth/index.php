@@ -2,7 +2,7 @@
 	<div class="span4 offset4">
 		<h1 class="logo">Previewr</h1>
 
-		<?php echo Form::open('auth/login', 'POST'); ?>
+		<?php echo Form::open('auth/login', 'POST', array('class' => 'login-form')); ?>
 			<p><?php echo Form::text('email', Input::old('email'), array('placeholder' => 'Email')); ?></p>
 			<p><?php echo Form::password('password', array('placeholder' => 'Password')); ?></p>
 			<p><?php echo Form::submit('Log In', array('class' => 'btn btn-large btn-primary')); ?></p>
