@@ -54,10 +54,13 @@ Route::post('previews/create/(:num)', function($project_id)
 		$preview->name = Input::get('name');
 		$preview->description = Input::get('description');
 
-		$preview_id = $preview->save();
+		if ($preview->save())
+		{
+			Message::add('success', 'Preview created successfully!');
 
-		return Redirect::to('versions/new/'.$preview_id)
-			->with('message_success', 'Preview created successfully! Now setup the first version!');
+			return Redirect::to('versions/new/'.$preview_id)
+				->with('message_success', 'Preview created successfully! Now setup the first version!');
+		}
 	}
 
 	return Redirect::to('previews/new')
