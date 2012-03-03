@@ -32,20 +32,24 @@
 				</div>
 			</div>
 		</div>
-		<?php foreach ($projects->results as $project): ?>
-			<div class="item row">
-				<?php if (empty($project->image_src)):
-					$background = 'http://placehold.it/270x75';
-				else:
-					$background = URL::to('uploads/'.$project->id.'/').$project->image_src;
-				endif; ?>
-				<a href="<?php echo URL::to('projects/'.$project->id); ?>" class="span3 project-preview" style="background: url('<?php echo $background; ?>') no-repeat center center;"></a>
-				<div class="span6">
-					<h2><a href="<?php echo URL::to('projects/'.$project->id); ?>"><?php echo $project->name; ?></a></h2>
-					<p><?php echo $project->description; ?></p>
-				</div>
-			</div>
-		<?php endforeach; ?>
+			<?php if (count($projects->results) > 0): ?>
+				<?php foreach ($projects->results as $project): ?>
+					<div class="item row">
+						<?php if (empty($project->image_src)):
+							$background = 'http://placehold.it/270x75';
+						else:
+							$background = URL::to('uploads/'.$project->id.'/').$project->image_src;
+						endif; ?>
+						<a href="<?php echo URL::to('projects/'.$project->id); ?>" class="span3 project-preview" style="background: url('<?php echo $background; ?>') no-repeat center center;"></a>
+						<div class="span6">
+							<h2><a href="<?php echo URL::to('projects/'.$project->id); ?>"><?php echo $project->name; ?></a></h2>
+							<p><?php echo $project->description; ?></p>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<p style="margin: 50px 0; text-align: center;">There are no projects yet. Would you like to <?php echo HTML::link('projects/new', 'create one'); ?>?</p>
+			<?php endif; ?>
 		
 		<?php echo $projects->links(); ?>
 	</section>
