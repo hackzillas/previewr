@@ -6,7 +6,10 @@
 	}
 	else
 	{
-		echo View::make('partials.navigation');
+		if ( ! Auth::guest())
+		{
+			echo View::make('partials.navigation');
+		}
 	}
 	?>
 
